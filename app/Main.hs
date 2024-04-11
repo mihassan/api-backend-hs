@@ -1,8 +1,12 @@
 module Main where
 
-import qualified MyLib (someFunc)
+import Api
+import Network.Wai.Middleware.RequestLogger
+import Web.Scotty
 
 main :: IO ()
 main = do
-  putStrLn "Hello, Haskell!"
-  MyLib.someFunc
+  scotty 8080 $ do
+    middleware logStdoutDev
+
+    setupRoutes
