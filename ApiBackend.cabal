@@ -61,7 +61,11 @@ library
     exposed-modules:
         Api,
         Hello.Api,
-        Common.Service
+        Wordle.Matcher,
+        Wordle.Types,
+        Wordle.WordBank,
+        Common.Service,
+        Common.Util
 
     -- Modules included in this library but not exported.
     -- other-modules:
@@ -73,10 +77,10 @@ library
     build-depends:
         base ^>=4.19.1.0,
         aeson,
+        containers,
         http-types,
         scotty,
         text
-
 
     -- Directories containing source files.
     hs-source-dirs:   lib
