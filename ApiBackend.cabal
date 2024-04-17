@@ -62,6 +62,7 @@ library
         Api,
         Hello.Api,
         Wordle.Matcher,
+        Wordle.Solver,
         Wordle.Types,
         Wordle.WordBank,
         Common.Service,
