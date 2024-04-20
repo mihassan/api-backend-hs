@@ -1,4 +1,4 @@
-module Common.Util ((...), annotateBy, histogram, distribution) where
+module Common.Util ((...), (.>), (<.), (|>), Distribution, Histogram, annotateBy, histogram, distribution, entropy) where
 
 import Data.List (group, sort)
 import Data.Map (Map)
@@ -7,6 +7,21 @@ import Data.Map.Strict qualified as Map
 type Histogram a = Map a Int
 
 type Distribution a = Map a Double
+
+infixl 9 .>
+
+(.>) :: (a -> b) -> (b -> c) -> (a -> c)
+(f .> g) x = g (f x)
+
+infixr 9 <.
+
+(<.) :: (b -> c) -> (a -> b) -> (a -> c)
+(f <. g) x = f (g x)
+
+infixl 0 |>
+
+(|>) :: a -> (a -> b) -> b
+x |> f = f x
 
 infixr 9 ...
 
@@ -25,3 +40,8 @@ distribution :: (Ord a) => [a] -> Distribution a
 distribution xs = toProbability <$> histogram xs
   where
     toProbability count = fromIntegral count / fromIntegral (length xs)
+
+entropy :: (Ord a) => [a] -> Distribution a
+entropy xs = Map.map toEntropy $ distribution xs
+  where
+    toEntropy p = -p * logBase 2 p

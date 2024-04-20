@@ -1,8 +1,8 @@
-{-# LANGUAGE ParallelListComp #-}
+module Wordle.Matcher (checkGuess, filterWords, partitionWords) where
 
-module Wordle.Matcher (checkGuess, filterWords) where
-
+import Common.Util
 import Data.List ((\\))
+import Data.List.Extra (groupSort)
 import Wordle.Types
 import Prelude hiding (Word)
 
@@ -19,8 +19,14 @@ checkGuess target guess = go target guess remainingLetters
       | otherwise = Absent : go ts gs remaining
     go _ _ _ = []
 
-filterWords :: WordBank -> [(Word, WordFeedback)] -> WordBank
-filterWords = foldr (uncurry filterWordsForSingleGuess)
+filterWords :: WordBank -> Attempts -> WordBank
+filterWords = foldr filterWordsForAttempt
 
-filterWordsForSingleGuess :: Word -> WordFeedback -> WordBank -> WordBank
-filterWordsForSingleGuess guess feedback = filter (\word -> checkGuess word guess == feedback)
+filterWordsForAttempt :: Attempt -> WordBank -> WordBank
+filterWordsForAttempt (guess, feedback) = filter (\target -> checkGuess target guess == feedback)
+
+partitionWords :: Word -> WordBank -> [(WordFeedback, WordBank)]
+partitionWords w wb =
+  map (`checkGuess` w) wb
+    |> flip zip wb
+    |> groupSort

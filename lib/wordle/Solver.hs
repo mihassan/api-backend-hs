@@ -1,37 +1,77 @@
 module Wordle.Solver (Solver (..), solve) where
 
 import Common.Util
-import Data.Function (on)
-import Data.List (nub, sortBy)
+import Data.List (nub, sortOn, (\\))
 import Data.Map.Strict qualified as Map
+import Data.Ord
 import Wordle.Matcher
 import Wordle.Types
 import Wordle.WordBank
 import Prelude hiding (Word)
 
-data Solver = RandomSolver | SimpleSolver | FastSolver | BestSolver | SmartSolver deriving (Show, Eq)
+solve :: Solver -> Attempts -> Word
+solve RandomSolver as = solveHelper (const 0.0) as
+solve NaiveSolver as = solveHelper (countUnseenLetters as) as
+solve FastestSolver as = solveHelper totalLetterDistribution as
+solve FastSolver as = solveHelper totalLetterEntropy as
+solve BetterSolver as = solveHelper minMaxPartitionSize as
+solve BestSolver as = solveHelper partitionEntropy as
+solve SmartSolver [] = "SALET"
+solve SmartSolver [a] = solve FastSolver [a]
+solve SmartSolver as = solve BestSolver as
 
-data CandidateWords = AllWords | FilteredWords deriving (Show, Eq)
-
-solve :: Solver -> [(Word, WordFeedback)] -> Word
-solve RandomSolver = solveHelper FilteredWords $ const 0
-solve SimpleSolver = solveHelper FilteredWords rankByLetterFrequency
-solve FastSolver = undefined
-solve BestSolver = undefined
-solve SmartSolver = undefined
-
-solveHelper :: CandidateWords -> RankingStrategy -> [(Word, WordFeedback)] -> Word
-solveHelper candidateWords rankingStrategy guesses =
-  head . filter (notYetGuessed guesses) . reverse . sortBy (compare `on` rankingStrategy) $
-    case candidateWords of
-      AllWords -> wordBank
-      FilteredWords -> filterWords wordBank guesses
-
-notYetGuessed :: [(Word, WordFeedback)] -> Word -> Bool
-notYetGuessed guesses word = word `notElem` (fst <$> guesses)
-
-rankByLetterFrequency :: RankingStrategy
-rankByLetterFrequency word = sum $ distForLetter <$> nub word
+solveHelper :: RankingStrategy -> Attempts -> Word
+solveHelper rs as =
+  filterWords wordBank as
+    |> filter (not . guessed)
+    |> rank
+    |> head
   where
-    dist = distribution $ concat wordBank
-    distForLetter letter = Map.findWithDefault 0 letter dist
+    gs = fst <$> as
+    guessed = (`elem` gs)
+    rank = sortOn (Down . rs)
+
+countUnseenLetters :: Attempts -> RankingStrategy
+countUnseenLetters as w =
+  concatMap fst as
+    |> (nub w \\)
+    |> length
+    |> fromIntegral
+
+letterDistribution :: Distribution Letter
+letterDistribution = distribution $ concat wordBank
+
+totalLetterDistribution :: RankingStrategy
+totalLetterDistribution w =
+  nub w
+    |> map toLetterDistribution
+    |> sum
+  where
+    toLetterDistribution l = letterDistribution |> Map.findWithDefault 0 l
+
+letterEntropy :: Distribution Letter
+letterEntropy = entropy $ concat wordBank
+
+totalLetterEntropy :: RankingStrategy
+totalLetterEntropy w =
+  nub w
+    |> map toLetterEntropy
+    |> sum
+  where
+    toLetterEntropy l = letterEntropy |> Map.findWithDefault 0 l
+
+minMaxPartitionSize :: RankingStrategy
+minMaxPartitionSize w =
+  partitionWords w wordBank
+    |> map (length . snd)
+    |> maximum
+    |> negate
+    |> fromIntegral
+
+partitionEntropy :: RankingStrategy
+partitionEntropy w =
+  partitionWords w wordBank
+    |> map (length . snd)
+    |> entropy
+    |> Map.elems
+    |> sum

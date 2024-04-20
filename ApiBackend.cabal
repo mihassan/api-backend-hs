@@ -81,7 +81,8 @@ library
         containers,
         http-types,
         scotty,
-        text
+        text,
+        extra
 
     -- Directories containing source files.
     hs-source-dirs:   lib
