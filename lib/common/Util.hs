@@ -1,4 +1,4 @@
-module Common.Util ((...), (.>), (<.), (|>), Distribution, Histogram, annotateBy, histogram, distribution, entropy) where
+module Common.Util ((...), (.>), (<.), (|>), Distribution, Histogram, annotateBy, histogram, histMin, histMax, histAverage, distribution, entropy) where
 
 import Data.List (group, sort)
 import Data.Map (Map)
@@ -35,6 +35,18 @@ histogram :: (Ord a) => [a] -> Histogram a
 histogram = Map.fromList . map count . group . sort
   where
     count xs = (head xs, length xs)
+
+histMin :: (Ord a) => Histogram a -> a
+histMin = Map.findMin .> fst
+
+histMax :: (Ord a) => Histogram a -> a
+histMax = Map.findMax .> fst
+
+histAverage :: (Integral a) => Histogram a -> Double
+histAverage h = fromIntegral total / fromIntegral count
+  where
+    total = Map.assocs h |> map (\(k, v) -> v * fromIntegral k) |> sum
+    count = Map.elems h |> sum
 
 distribution :: (Ord a) => [a] -> Distribution a
 distribution xs = toProbability <$> histogram xs

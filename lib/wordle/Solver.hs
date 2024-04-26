@@ -1,9 +1,9 @@
 module Wordle.Solver (Solver (..), solve) where
 
 import Common.Util
-import Data.List (nub, sortOn, (\\))
+import Data.List (nub, (\\))
+import Data.List.Extra
 import Data.Map.Strict qualified as Map
-import Data.Ord
 import Wordle.Matcher
 import Wordle.Types
 import Wordle.WordBank
@@ -16,7 +16,7 @@ solve FastestSolver as = solveHelper totalLetterDistribution as
 solve FastSolver as = solveHelper totalLetterEntropy as
 solve BetterSolver as = solveHelper minMaxPartitionSize as
 solve BestSolver as = solveHelper partitionEntropy as
-solve SmartSolver [] = "SALET"
+solve SmartSolver [] = "TRACE"
 solve SmartSolver [a] = solve FastSolver [a]
 solve SmartSolver as = solve BestSolver as
 
@@ -24,12 +24,10 @@ solveHelper :: RankingStrategy -> Attempts -> Word
 solveHelper rs as =
   filterWords wordBank as
     |> filter (not . guessed)
-    |> rank
-    |> head
+    |> minimumOn rs
   where
     gs = fst <$> as
     guessed = (`elem` gs)
-    rank = sortOn (Down . rs)
 
 countUnseenLetters :: Attempts -> RankingStrategy
 countUnseenLetters as w =
