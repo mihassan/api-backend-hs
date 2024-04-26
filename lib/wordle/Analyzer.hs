@@ -4,7 +4,6 @@ import Common.Util
 import Wordle.Matcher
 import Wordle.Solver
 import Wordle.Types
-import Wordle.WordBank
 import Prelude hiding (Word)
 
 analyze :: Solver -> WordBank -> AnalysisReport

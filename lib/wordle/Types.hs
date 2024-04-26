@@ -22,10 +22,10 @@ data Solver
   | NaiveSolver
   | FastestSolver
   | FastSolver
-  | BetterSolver
-  | BestSolver
-  | SmartSolver
-  deriving (Show, Eq)
+  | ModerateSolver
+  | SlowerSolver
+  | SlowestSolver
+  deriving (Show, Eq, Ord, Bounded, Enum)
 
 type RankingStrategy = Word -> Double
 

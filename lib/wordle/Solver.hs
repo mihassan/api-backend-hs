@@ -13,11 +13,11 @@ solve RandomSolver as = solveHelper (const 0.0) as
 solve NaiveSolver as = solveHelper (countUnseenLetters as) as
 solve FastestSolver as = solveHelper totalLetterDistribution as
 solve FastSolver as = solveHelper totalLetterEntropy as
-solve BetterSolver as = solveHelper minMaxPartitionSize as
-solve BestSolver as = solveHelper partitionEntropy as
-solve SmartSolver [] = "SALET"
-solve SmartSolver [a] = solve FastSolver [a]
-solve SmartSolver as = solve BestSolver as
+solve SlowerSolver as = solveHelper minMaxPartitionSize as
+solve SlowestSolver as = solveHelper partitionEntropy as
+solve ModerateSolver [] = "SALET"
+solve ModerateSolver [a] = solve FastestSolver [a]
+solve ModerateSolver as = solve SlowestSolver as
 
 solveHelper :: RankingStrategy -> Attempts -> Word
 solveHelper rs as =

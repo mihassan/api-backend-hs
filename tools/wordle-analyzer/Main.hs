@@ -18,7 +18,7 @@ main = do
   gen <- newStdGen
   let idxs = randomRs (0, length wordBank - 1) gen
   let wb = (wordBank !!) <$> take 100 idxs
-  forM_ [RandomSolver, NaiveSolver, FastestSolver, FastSolver, BetterSolver, BestSolver, SmartSolver] $ \s -> do
+  forM_ [minBound .. maxBound] $ \s -> do
     putStrLn $ "Running analysis for solver: " ++ show s
     timeIt $ runAnalysis s wb
     putStrLn "\n\n"
