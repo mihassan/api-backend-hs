@@ -1,7 +1,6 @@
 module Wordle.Solver (Solver (..), solve) where
 
 import Common.Util
-import Data.List (nub, (\\))
 import Data.List.Extra
 import Data.Map.Strict qualified as Map
 import Wordle.Matcher
@@ -16,7 +15,7 @@ solve FastestSolver as = solveHelper totalLetterDistribution as
 solve FastSolver as = solveHelper totalLetterEntropy as
 solve BetterSolver as = solveHelper minMaxPartitionSize as
 solve BestSolver as = solveHelper partitionEntropy as
-solve SmartSolver [] = "TRACE"
+solve SmartSolver [] = "SALET"
 solve SmartSolver [a] = solve FastSolver [a]
 solve SmartSolver as = solve BestSolver as
 
@@ -24,7 +23,7 @@ solveHelper :: RankingStrategy -> Attempts -> Word
 solveHelper rs as =
   filterWords wordBank as
     |> filter (not . guessed)
-    |> minimumOn rs
+    |> maximumOn rs
   where
     gs = fst <$> as
     guessed = (`elem` gs)

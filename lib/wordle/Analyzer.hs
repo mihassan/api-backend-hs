@@ -7,9 +7,9 @@ import Wordle.Types
 import Wordle.WordBank
 import Prelude hiding (Word)
 
-analyze :: Solver -> AnalysisReport
-analyze s =
-  map (simulate s) (take 10000 wordBank)
+analyze :: Solver -> WordBank -> AnalysisReport
+analyze s wb =
+  map (simulate s) wb
     |> map length
     |> histogram
     |> mkAnalysisReport
@@ -24,7 +24,7 @@ mkAnalysisReport h =
     }
 
 simulate :: Solver -> Word -> Attempts
-simulate s w = go [("TRACE", checkGuess w "TRACE")] |> reverse
+simulate s w = go [("SALET", checkGuess w "SALET")] |> reverse
   where
     go :: Attempts -> Attempts
     go as

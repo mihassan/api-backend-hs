@@ -51,7 +51,7 @@ extra-doc-files:    CHANGELOG.md
 -- extra-source-files:
 
 common common
-    ghc-options: -Wall
+    ghc-options: -Wall -O2
 
     -- Base language which the package is written in.
     default-language: GHC2021
@@ -101,6 +101,23 @@ executable ApiBackend
 
     -- Directories containing source files.
     hs-source-dirs:   app
+
+executable WordleAnalyzer
+    -- Import common settings.
+    import:           common
+
+    -- .hs or .lhs file containing the Main module.
+    main-is:          Main.hs
+
+    -- Other library packages from which modules are imported.
+    build-depends:
+        base ^>=4.19.1.0,
+        random,
+        timeit,
+        ApiBackend
+
+    -- Directories containing source files.
+    hs-source-dirs:   tools/wordle-analyzer
 
 test-suite ApiBackend-test
     -- Import common settings.
