@@ -20,11 +20,12 @@ type Attempts = [Attempt]
 data Solver
   = RandomSolver
   | NaiveSolver
-  | FastestSolver
-  | FastSolver
-  | ModerateSolver
-  | SlowerSolver
-  | SlowestSolver
+  | FastSolver1
+  | FastSolver2
+  | MixedSolver1
+  | MixedSolver2
+  | SlowSolver1
+  | SlowSolver2
   deriving (Show, Eq, Ord, Bounded, Enum)
 
 type RankingStrategy = WordBank -> Word -> Double

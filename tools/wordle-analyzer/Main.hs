@@ -10,11 +10,11 @@ import Wordle.WordBank
 runAnalysis :: Solver -> WordBank -> IO ()
 runAnalysis s wb = do
   let r = analyze s wb
-  putStrLn $ "Analysis: " ++ show r
+  putStrLn $ "\nAnalysis: " ++ show r
+  putStrLn $ "\nDifficult words: " ++ show (difficultWords 5 s wb)
 
 main :: IO ()
 main = do
   forM_ [minBound .. maxBound] $ \s -> do
-    putStrLn $ "Running analysis for solver: " ++ show s
+    putStrLn $ "\n\nRunning analysis for solver: " ++ show s
     timeIt $ runAnalysis s wordBank
-    putStrLn "\n\n"

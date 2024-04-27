@@ -1,4 +1,9 @@
-module Wordle.Analyzer (analyze, simulate) where
+module Wordle.Analyzer
+  ( analyze,
+    difficultWords,
+    simulate,
+  )
+where
 
 import Common.Util
 import Wordle.Matcher
@@ -21,6 +26,13 @@ mkAnalysisReport h =
       maxAttempts = histMax h,
       minAttempts = histMin h
     }
+
+difficultWords :: Int -> Solver -> WordBank -> [(Word, Int)]
+difficultWords n s wb =
+  map (simulate s) wb
+    |> map length
+    |> zip wb
+    |> filter ((> n) . snd)
 
 simulate :: Solver -> Word -> Attempts
 simulate s w = go [("TRACE", checkGuess w "TRACE")] |> reverse
