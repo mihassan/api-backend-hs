@@ -27,7 +27,7 @@ data Solver
   | SlowestSolver
   deriving (Show, Eq, Ord, Bounded, Enum)
 
-type RankingStrategy = Word -> Double
+type RankingStrategy = WordBank -> Word -> Double
 
 data AnalysisReport = AnalysisReport
   { histogramOfAttempts :: Histogram Int,

@@ -23,7 +23,7 @@ mkAnalysisReport h =
     }
 
 simulate :: Solver -> Word -> Attempts
-simulate s w = go [("SALET", checkGuess w "SALET")] |> reverse
+simulate s w = go [("TRACE", checkGuess w "TRACE")] |> reverse
   where
     go :: Attempts -> Attempts
     go as

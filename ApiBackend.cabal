@@ -112,7 +112,6 @@ executable WordleAnalyzer
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.19.1.0,
-        random,
         timeit,
         ApiBackend
 

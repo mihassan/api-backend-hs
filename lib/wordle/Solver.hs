@@ -9,7 +9,7 @@ import Wordle.WordBank
 import Prelude hiding (Word)
 
 solve :: Solver -> Attempts -> Word
-solve RandomSolver as = solveHelper (const 0.0) as
+solve RandomSolver as = solveHelper (\_ _ -> 0.0) as
 solve NaiveSolver as = solveHelper (countUnseenLetters as) as
 solve FastestSolver as = solveHelper totalLetterDistribution as
 solve FastSolver as = solveHelper totalLetterEntropy as
@@ -20,16 +20,12 @@ solve ModerateSolver [a] = solve FastestSolver [a]
 solve ModerateSolver as = solve SlowestSolver as
 
 solveHelper :: RankingStrategy -> Attempts -> Word
-solveHelper rs as =
-  filterWords wordBank as
-    |> filter (not . guessed)
-    |> maximumOn rs
+solveHelper rs as = maximumOn (rs wb) wb
   where
-    gs = fst <$> as
-    guessed = (`elem` gs)
+    wb = filterWords wordBank as
 
 countUnseenLetters :: Attempts -> RankingStrategy
-countUnseenLetters as w =
+countUnseenLetters as _ w =
   concatMap fst as
     |> (nub w \\)
     |> length
@@ -39,7 +35,7 @@ letterDistribution :: Distribution Letter
 letterDistribution = distribution $ concat wordBank
 
 totalLetterDistribution :: RankingStrategy
-totalLetterDistribution w =
+totalLetterDistribution _ w =
   nub w
     |> map toLetterDistribution
     |> sum
@@ -50,7 +46,7 @@ letterEntropy :: Distribution Letter
 letterEntropy = entropy $ concat wordBank
 
 totalLetterEntropy :: RankingStrategy
-totalLetterEntropy w =
+totalLetterEntropy _ w =
   nub w
     |> map toLetterEntropy
     |> sum
@@ -58,17 +54,18 @@ totalLetterEntropy w =
     toLetterEntropy l = letterEntropy |> Map.findWithDefault 0 l
 
 minMaxPartitionSize :: RankingStrategy
-minMaxPartitionSize w =
-  partitionWords w wordBank
+minMaxPartitionSize wb w =
+  partitionWords w wb
     |> map (length . snd)
     |> maximum
     |> negate
     |> fromIntegral
 
 partitionEntropy :: RankingStrategy
-partitionEntropy w =
-  partitionWords w wordBank
-    |> map (length . snd)
-    |> entropy
+partitionEntropy wb w =
+  partitionWords w wb
+    |> map (\(x, y) -> (x, length y))
+    |> Map.fromList
+    |> entropyFromHistogram
     |> Map.elems
     |> sum

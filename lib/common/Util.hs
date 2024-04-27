@@ -1,4 +1,21 @@
-module Common.Util ((...), (.>), (<.), (|>), Distribution, Histogram, annotateBy, histogram, histMin, histMax, histAverage, distribution, entropy) where
+module Common.Util
+  ( (...),
+    (.>),
+    (<.),
+    (|>),
+    Distribution,
+    Histogram,
+    annotateBy,
+    histogram,
+    histMin,
+    histMax,
+    histAverage,
+    distributionFromHistogram,
+    distribution,
+    entropyFromHistogram,
+    entropy,
+  )
+where
 
 import Data.List (group, sort)
 import Data.Map (Map)
@@ -48,12 +65,18 @@ histAverage h = fromIntegral total / fromIntegral count
     total = Map.assocs h |> map (\(k, v) -> v * fromIntegral k) |> sum
     count = Map.elems h |> sum
 
-distribution :: (Ord a) => [a] -> Distribution a
-distribution xs = toProbability <$> histogram xs
+distributionFromHistogram :: Histogram a -> Distribution a
+distributionFromHistogram hs = hs |> Map.map ((/ total) . fromIntegral)
   where
-    toProbability count = fromIntegral count / fromIntegral (length xs)
+    total = Map.elems hs |> sum |> fromIntegral
 
-entropy :: (Ord a) => [a] -> Distribution a
-entropy xs = Map.map toEntropy $ distribution xs
+distribution :: (Ord a) => [a] -> Distribution a
+distribution = histogram .> distributionFromHistogram
+
+entropyFromHistogram :: Histogram a -> Distribution a
+entropyFromHistogram = distributionFromHistogram .> Map.map toEntropy
   where
     toEntropy p = -p * logBase 2 p
+
+entropy :: (Ord a) => [a] -> Distribution a
+entropy = histogram .> entropyFromHistogram
