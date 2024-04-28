@@ -7,9 +7,10 @@ import Common.Service
 import Hello.Api qualified as Hello
 import Network.HTTP.Types.Status
 import Web.Scotty
+import Wordle.Api qualified as Wordle
 
 service :: Service
-service = Hello.service
+service = Hello.service <> Wordle.service
 
 setupRoutes :: ScottyM ()
 setupRoutes = do
