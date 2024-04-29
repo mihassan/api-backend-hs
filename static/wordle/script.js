@@ -1,24 +1,27 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
+    currentAttempt: -1,
 
     clearAttempts() {
       this.attempts = [
         ["TRACE", ["Absent", "Absent", "Absent", "Absent", "Absent"]],
       ];
+      this.currentAttempt = 0;
     },
 
     populateGrid(data) {
-      console.log(data);
       this.attempts.push([
         data.word,
         ["Absent", "Absent", "Absent", "Absent", "Absent"],
       ]);
+      this.currentAttempt++;
     },
 
     toggleCell(attemptIndex, letterIndex) {
       let attempt = this.attempts[attemptIndex][1][letterIndex];
       let newAttempt;
+
       if (attempt === "Absent") {
         newAttempt = "Correct";
       } else if (attempt === "Correct") {
@@ -26,6 +29,7 @@ document.addEventListener("alpine:init", () => {
       } else {
         newAttempt = "Absent";
       }
+
       this.attempts[attemptIndex][1][letterIndex] = newAttempt;
     },
 

@@ -28,13 +28,13 @@
           <div class="row">
             <template x-for="(cell, cellIndex) in row[1]" :key="cellIndex">
               <div
-                @click="toggleCell(rowIndex, cellIndex)"
+                @click="rowIndex == currentAttempt && toggleCell(rowIndex, cellIndex)"
                 :class="{
-            cell: true,
-            green: cell === 'Correct',
-            yellow: cell === 'Misplaced',
-            grey: cell === 'Absent',
-          }"
+                  cell: true,
+                  green: cell === 'Correct',
+                  yellow: cell === 'Misplaced',
+                  grey: cell === 'Absent',
+                }"
                 x-text="row[0][cellIndex]"
               ></div>
             </template>
