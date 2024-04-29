@@ -1,0 +1,54 @@
+body {
+  display: grid;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.wordle-grid {
+  display: grid;
+  gap: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 5px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  border: 2px solid #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.1s ease; /* Smooth transition for the click effect */
+}
+
+.cell:active {
+  transform: scale(0.95); /* Scales down the cell when clicked */
+}
+
+.cell.green {
+  background-color: #4caf50;
+}
+
+.cell.yellow {
+  background-color: #ffeb3b;
+}
+
+.cell.grey {
+  background-color: #aeaeae;
+}
+
+footer {
+  display: grid;
+}
