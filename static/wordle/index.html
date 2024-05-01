@@ -24,18 +24,13 @@
 
     <main>
       <div class="wordle-grid">
-        <template x-for="(row, rowIndex) in attempts" :key="rowIndex">
+        <template x-for="(attempt, rowIdx) in attempts">
           <div class="row">
-            <template x-for="(cell, cellIndex) in row[1]" :key="cellIndex">
+            <template x-for="(feedback, colIdx) in attempt['feedback']">
               <div
-                @click="rowIndex == currentAttempt && toggleCell(rowIndex, cellIndex)"
-                :class="{
-                  cell: true,
-                  green: cell === 'Correct',
-                  yellow: cell === 'Misplaced',
-                  grey: cell === 'Absent',
-                }"
-                x-text="row[0][cellIndex]"
+                @click="toggleCell(rowIdx, colIdx)"
+                :class="getClass(rowIdx, colIdx)"
+                x-text="attempt['word'][colIdx]"
               ></div>
             </template>
           </div>
@@ -44,7 +39,7 @@
     </main>
     <footer>
       <button class="solve-button" @click="solve">Solve</button>
-      <button class="clear-button" @click="clearAttempts">Clear</button>
+      <button class="clear-button" @click="initAttempts">Clear</button>
     </footer>
   </body>
 </html>

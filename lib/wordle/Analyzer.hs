@@ -1,3 +1,5 @@
+{-# LANGUAGE RecordWildCards #-}
+
 module Wordle.Analyzer
   ( analyze,
     difficultWords,
@@ -35,13 +37,20 @@ difficultWords n s wb =
     |> filter ((> n) . snd)
 
 simulate :: Solver -> Word -> Attempts
-simulate s w = go [("TRACE", checkGuess w "TRACE")] |> reverse
+simulate s w = go [initialAttempt] |> reverse
   where
+    initialAttempt = Attempt {word = "TRACE", feedback = checkGuess w "TRACE"}
+    mkAttempt :: Word -> Attempt
+    mkAttempt g = Attempt {word = g, feedback = checkGuess w g}
     go :: Attempts -> Attempts
     go as
       | isSolved as = as
-      | otherwise = go $ (g, checkGuess w g) : as
-      where
-        g = solve s as
-        isSolved [] = False
-        isSolved ((_, f) : _) = all (== Correct) f
+      | otherwise =
+          solve s as
+            |> mkAttempt
+            |> (: as)
+            |> go
+
+isSolved :: Attempts -> Bool
+isSolved [] = False
+isSolved (Attempt {..} : _) = all (== Correct) feedback

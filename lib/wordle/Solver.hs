@@ -55,7 +55,7 @@ computeCandidates as = wb1 ++ wb2 |> nub
 
 countUnseenLetters :: Attempts -> RankingStrategy
 countUnseenLetters as _ w =
-  concatMap fst as
+  concatMap word as
     |> (nub w \\)
     |> length
     |> fromIntegral

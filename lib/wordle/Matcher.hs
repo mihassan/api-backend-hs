@@ -1,3 +1,5 @@
+{-# LANGUAGE RecordWildCards #-}
+
 module Wordle.Matcher (checkGuess, filterWords, partitionWords) where
 
 import Common.Util
@@ -23,7 +25,7 @@ filterWords :: WordBank -> Attempts -> WordBank
 filterWords = foldr filterWordsForAttempt
 
 filterWordsForAttempt :: Attempt -> WordBank -> WordBank
-filterWordsForAttempt (guess, feedback) = filter (\target -> checkGuess target guess == feedback)
+filterWordsForAttempt Attempt {..} = filter (\target -> checkGuess target word == feedback)
 
 partitionWords :: Word -> WordBank -> [(WordFeedback, WordBank)]
 partitionWords w wb =

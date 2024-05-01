@@ -1,4 +1,16 @@
-module Wordle.Types (Letter, Word, WordBank, Feedback (..), WordFeedback, Attempt, Attempts, Solver (..), RankingStrategy, AnalysisReport (..)) where
+module Wordle.Types
+  ( Letter,
+    Word,
+    WordBank,
+    Feedback (..),
+    WordFeedback,
+    Attempt (..),
+    Attempts,
+    Solver (..),
+    RankingStrategy,
+    AnalysisReport (..),
+  )
+where
 
 import Common.Util
 import Data.Aeson
@@ -11,13 +23,23 @@ type Word = [Letter]
 
 type WordBank = [Word]
 
-data Feedback = Correct | Misplaced | Absent deriving (Show, Eq, Ord, Generic)
+data Feedback
+  = Correct
+  | Misplaced
+  | Absent
+  deriving (Show, Eq, Ord, Generic)
 
 instance FromJSON Feedback
 
 type WordFeedback = [Feedback]
 
-type Attempt = (Word, WordFeedback)
+data Attempt = Attempt
+  { word :: Word,
+    feedback :: WordFeedback
+  }
+  deriving (Show, Eq, Generic)
+
+instance FromJSON Attempt
 
 type Attempts = [Attempt]
 
@@ -30,7 +52,7 @@ data Solver
   | MixedSolver2
   | SlowSolver1
   | SlowSolver2
-  deriving (Show, Eq, Ord, Bounded, Enum, Generic)
+  deriving (Show, Eq, Bounded, Enum, Generic)
 
 instance FromJSON Solver
 

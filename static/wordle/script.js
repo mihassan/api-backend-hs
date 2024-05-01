@@ -1,36 +1,49 @@
+const NEXT_ATTEMPT = {
+  Absent: "Correct",
+  Correct: "Misplaced",
+  Misplaced: "Absent",
+};
+
+const COLORS = {
+  Correct: "green",
+  Misplaced: "yellow",
+  Absent: "grey",
+};
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
-    currentAttempt: -1,
 
-    clearAttempts() {
+    initAttempts() {
       this.attempts = [
-        ["TRACE", ["Absent", "Absent", "Absent", "Absent", "Absent"]],
+        {
+          word: "TRACE",
+          feedback: Array(5).fill("Absent"),
+        },
       ];
-      this.currentAttempt = 0;
     },
 
     populateGrid(data) {
-      this.attempts.push([
-        data.word,
-        ["Absent", "Absent", "Absent", "Absent", "Absent"],
-      ]);
-      this.currentAttempt++;
+      this.attempts.push({
+        word: data.word,
+        feedback: Array(5).fill("Absent"),
+      });
     },
 
-    toggleCell(attemptIndex, letterIndex) {
-      let attempt = this.attempts[attemptIndex][1][letterIndex];
-      let newAttempt;
+    getClass(rowIdx, colIdx) {
+      let feedback = this.attempts[rowIdx].feedback[colIdx];
+      return {
+        cell: true,
+        last: rowIdx == this.attempts.length - 1,
+        [COLORS[feedback]]: true,
+      };
+    },
 
-      if (attempt === "Absent") {
-        newAttempt = "Correct";
-      } else if (attempt === "Correct") {
-        newAttempt = "Misplaced";
-      } else {
-        newAttempt = "Absent";
-      }
-
-      this.attempts[attemptIndex][1][letterIndex] = newAttempt;
+    toggleCell(rowIdx, colIdx) {
+      if (rowIdx != this.attempts.length - 1) return;
+      let lastAttempt = this.attempts[rowIdx];
+      let feedback = lastAttempt["feedback"];
+      feedback[colIdx] = NEXT_ATTEMPT[feedback[colIdx]];
     },
 
     solve() {
@@ -47,8 +60,7 @@ document.addEventListener("alpine:init", () => {
     },
 
     init() {
-      console.log("init");
-      this.clearAttempts();
+      this.initAttempts();
     },
   }));
 });

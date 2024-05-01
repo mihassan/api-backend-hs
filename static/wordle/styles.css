@@ -33,7 +33,7 @@ h1 {
   transition: transform 0.1s ease; /* Smooth transition for the click effect */
 }
 
-.cell:active {
+.cell.last:active {
   transform: scale(0.95); /* Scales down the cell when clicked */
 }
 
