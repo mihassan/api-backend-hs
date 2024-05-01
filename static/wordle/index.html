@@ -40,6 +40,11 @@
     <footer>
       <button class="solve-button" @click="solve">Solve</button>
       <button class="clear-button" @click="initAttempts">Clear</button>
+      <select x-model="selectedSolver">
+        <template x-for="solver in solvers" :key="solver">
+          <option :value="solver" x-text="solver"></option>
+        </template>
+      </select>
     </footer>
   </body>
 </html>

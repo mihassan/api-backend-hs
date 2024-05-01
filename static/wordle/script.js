@@ -13,6 +13,17 @@ const COLORS = {
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
+    selectedSolver: "RandomSolver",
+    solvers: [
+      "RandomSolver",
+      "NaiveSolver",
+      "FastSolver1",
+      "FastSolver2",
+      "MixedSolver1",
+      "MixedSolver2",
+      "SlowSolver1",
+      "SlowSolver2",
+    ],
 
     initAttempts() {
       this.attempts = [
@@ -51,7 +62,7 @@ document.addEventListener("alpine:init", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          solver: "MixedSolver2",
+          solver: this.selectedSolver,
           attempts: this.attempts,
         }),
       })
