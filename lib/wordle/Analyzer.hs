@@ -3,11 +3,13 @@
 module Wordle.Analyzer
   ( analyze,
     difficultWords,
+    totalCostForSolver,
     simulate,
   )
 where
 
 import Common.Util
+import Data.List
 import Wordle.Matcher
 import Wordle.Solver
 import Wordle.Types
@@ -35,6 +37,19 @@ difficultWords n s wb =
     |> map length
     |> zip wb
     |> filter ((> n) . snd)
+
+totalCostForSolver :: Solver -> WordBank -> Attempts -> Int
+totalCostForSolver _ [] _ = 0
+totalCostForSolver _ [_] _ = 1
+totalCostForSolver _ [_, _] _ = 3
+totalCostForSolver s wb as = guessCost + sum costs
+  where
+    guess = solve s as
+    guessCost = if guess `elem` wb then 1 else 0
+    costs = (wb \\ [guess]) |> partitionWords guess |> map go
+    go (fb, wb') =
+      let as' = Attempt guess fb : as
+       in length wb' + totalCostForSolver s wb' as'
 
 simulate :: Solver -> Word -> Attempts
 simulate s w = go [initialAttempt] |> reverse
