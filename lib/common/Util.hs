@@ -1,17 +1,24 @@
 module Common.Util
-  ( (...),
+  ( -- * Useful operators
+    (...),
     (.>),
     (<.),
     (|>),
-    Distribution,
-    Histogram,
     annotateBy,
+
+    -- * Hisogram related functions
+    Histogram,
     histogram,
     histMin,
     histMax,
     histAverage,
+
+    -- * Distribution related functions
+    Distribution,
     distributionFromHistogram,
     distribution,
+
+    -- * Entropy related functions
     entropyFromHistogram,
     entropy,
   )
@@ -20,13 +27,6 @@ where
 import Data.List (group, sort)
 import Data.Map (Map)
 import Data.Map.Strict qualified as Map
-
--- | A histogram is a map from a value to its frequency.
-type Histogram a = Map a Int
-
--- | A distribution is a map from a value to its probability.
--- The sum of all probabilities should be 1.
-type Distribution a = Map a Double
 
 -- | Left associative function composition with flipped arguments.
 infixl 9 .>
@@ -57,6 +57,9 @@ infixr 9 ...
 annotateBy :: (a -> b) -> a -> (b, a)
 annotateBy f x = (f x, x)
 
+-- | A histogram is a map from a value to its frequency.
+type Histogram a = Map a Int
+
 -- | Compute the histogram of a list, takes /O(n log n)/ time.
 histogram :: (Ord a) => [a] -> Histogram a
 histogram = Map.fromList . map toKeyLength . group . sort
@@ -77,6 +80,10 @@ histAverage h = fromIntegral total / fromIntegral count
   where
     total = Map.assocs h |> map (\(k, v) -> v * fromIntegral k) |> sum
     count = Map.elems h |> sum
+
+-- | A distribution is a map from a value to its probability.
+-- The sum of all probabilities should be 1.
+type Distribution a = Map a Double
 
 -- | Convert a histogram to a distribution.
 distributionFromHistogram :: Histogram a -> Distribution a
