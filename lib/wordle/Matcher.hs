@@ -5,7 +5,7 @@ module Wordle.Matcher (checkGuess, filterWords, partitionWords) where
 import Common.Util
 import Data.List ((\\))
 import Data.List.Extra (groupSort)
-import Wordle.Types
+import Wordle.Type
 import Prelude hiding (Word)
 
 checkGuess :: Word -> Word -> WordFeedback

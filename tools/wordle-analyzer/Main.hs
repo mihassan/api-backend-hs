@@ -4,7 +4,7 @@ import Control.Monad
 import System.TimeIt
 import Wordle.Analyzer
 import Wordle.Solver
-import Wordle.Types
+import Wordle.Type
 import Wordle.WordBank
 
 runAnalysis :: Solver -> WordBank -> IO ()

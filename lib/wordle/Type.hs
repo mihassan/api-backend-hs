@@ -1,4 +1,4 @@
-module Wordle.Types
+module Wordle.Type
   ( Letter,
     Word,
     WordBank,

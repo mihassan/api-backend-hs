@@ -12,7 +12,7 @@ import Common.Util
 import Data.List
 import Wordle.Matcher
 import Wordle.Solver
-import Wordle.Types
+import Wordle.Type
 import Prelude hiding (Word)
 
 analyze :: Solver -> WordBank -> AnalysisReport

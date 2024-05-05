@@ -68,7 +68,7 @@ library
         Wordle.Api,
         Wordle.Matcher,
         Wordle.Solver,
-        Wordle.Types,
+        Wordle.Type,
         Wordle.WordBank,
         Common.Service,
         Common.Util
