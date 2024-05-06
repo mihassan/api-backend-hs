@@ -1,6 +1,6 @@
 module Wordle.WordBank (wordBank) where
 
-import Wordle.Type (WordBank)
+import Wordle.Types (WordBank)
 
 wordBank :: WordBank
 wordBank =

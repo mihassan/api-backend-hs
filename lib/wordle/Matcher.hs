@@ -10,7 +10,7 @@ where
 import Common.Util ((.>), (|>))
 import Data.List ((\\))
 import Data.List.Extra (groupSort)
-import Wordle.Type (Attempt (..), Attempts, Feedback (..), Word, WordBank, WordFeedback)
+import Wordle.Types (Attempt (..), Attempts, Feedback (..), Word, WordBank, WordFeedback)
 import Prelude hiding (Word)
 
 -- | Given a target word and a guess, return the feedback on the guess.

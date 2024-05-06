@@ -7,7 +7,7 @@ import Common.Service
 import Data.Aeson
 import GHC.Generics
 import Wordle.Solver
-import Wordle.Type
+import Wordle.Types
 import Prelude hiding (Word)
 
 data Request = Request

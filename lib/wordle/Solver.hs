@@ -4,7 +4,7 @@ import Common.Util
 import Data.List.Extra
 import Data.Map.Strict qualified as Map
 import Wordle.Matcher
-import Wordle.Type
+import Wordle.Types
 import Wordle.WordBank
 import Prelude hiding (Word)
 
