@@ -15,14 +15,14 @@ module Common.Util
 
     -- * Distribution related functions
     Distribution,
-    distributionFromHistogram,
     distribution,
 
     -- * Entropy related functions
-    entropyFromHistogram,
-    entropy,
+    entropyFromFreq,
   )
 where
+
+-- entropy,
 
 import Data.List (group, sort)
 import Data.Map (Map)
@@ -125,46 +125,32 @@ histAverage h = fromIntegral total / fromIntegral count
 -- However, we do not enforce this constraint when used to hold entropy values.
 type Distribution a = Map a Double
 
--- | Convert a histogram to a distribution.
---
--- >>> distributionFromHistogram $ histogram [1, 2, 1, 3, 1 ]
--- fromList [(1,0.6),(2,0.2),(3,0.2)]
-distributionFromHistogram :: Histogram a -> Distribution a
-distributionFromHistogram hs = hs |> Map.map ((/ total) . fromIntegral)
-  where
-    total = Map.elems hs |> sum |> fromIntegral
-
 -- | Compute the distribution of a list, takes /O(n log n)/ time.
 --
 -- >>> distribution [1, 2, 1, 3, 1]
 -- fromList [(1,0.6),(2,0.2),(3,0.2)]
 distribution :: (Ord a) => [a] -> Distribution a
-distribution = histogram .> distributionFromHistogram
-
--- | Compute the entropy from a histogram.
---
--- >>> entropyFromHistogram $ histogram [1, 2]
--- fromList [(1,0.5),(2,0.5)]
---
--- >>> entropyFromHistogram $ histogram [1, 2, 3, 4]
--- fromList [(1,0.5),(2,0.5),(3,0.5),(4,0.5)]
---
--- >>> entropyFromHistogram $ histogram [1, 2, 1, 3, 1]
--- fromList [(1,0.44217935649972373),(2,0.46438561897747244),(3,0.46438561897747244)]
-entropyFromHistogram :: Histogram a -> Distribution a
-entropyFromHistogram = distributionFromHistogram .> Map.map toEntropy
+distribution xs = histogram xs |> Map.map normalize
   where
-    toEntropy p = -p * logBase 2 p
+    total = length xs |> fromIntegral
+    normalize = fromIntegral .> (/ total)
 
--- | Compute the entropy of a list.
+-- | Compute the entropy from frequency.
 --
--- >>> entropy [1, 2]
--- fromList [(1,0.5),(2,0.5)]
+-- >>> entropyFromFreq [1, 1]
+-- 1.0
 --
--- >>> entropy [1, 2, 3, 4]
--- fromList [(1,0.5),(2,0.5),(3,0.5),(4,0.5)]
+-- >>> entropyFromFreq [1, 1, 1, 1]
+-- 2.0
 --
--- >>> entropy [1, 2, 1, 3, 1]
--- fromList [(1,0.44217935649972373),(2,0.46438561897747244),(3,0.46438561897747244)]
-entropy :: (Ord a) => [a] -> Distribution a
-entropy = histogram .> entropyFromHistogram
+-- >>> entropyFromFreq [1, 2, 1, 2, 2]
+-- 2.25
+entropyFromFreq :: (Integral a) => [a] -> Double
+entropyFromFreq xs =
+  map fromIntegral xs
+    |> map (/ total)
+    |> map toEntropy
+    |> sum
+  where
+    total = sum xs |> fromIntegral
+    toEntropy p = -p * logBase 2 p

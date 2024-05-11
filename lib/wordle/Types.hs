@@ -57,7 +57,6 @@ data Solver
   = RandomSolver
   | NaiveSolver
   | FastSolver1
-  | FastSolver2
   | MixedSolver1
   | MixedSolver2
   | SlowSolver1

@@ -18,7 +18,6 @@ document.addEventListener("alpine:init", () => {
       "RandomSolver",
       "NaiveSolver",
       "FastSolver1",
-      "FastSolver2",
       "MixedSolver1",
       "MixedSolver2",
       "SlowSolver1",

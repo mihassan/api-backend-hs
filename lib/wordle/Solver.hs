@@ -12,7 +12,6 @@ solve :: Solver -> Attempts -> Word
 solve RandomSolver as = filterWords wordBank as |> head
 solve NaiveSolver as = solveHelper1 (countUnseenLetters as) as
 solve FastSolver1 as = solveHelper1 totalLetterDistribution as
-solve FastSolver2 as = solveHelper1 totalLetterEntropy as
 solve SlowSolver1 as = solveHelper2 minMaxPartitionSize as
 solve SlowSolver2 as = solveHelper2 partitionEntropy as
 solve MixedSolver1 as
@@ -71,17 +70,6 @@ totalLetterDistribution _ w =
   where
     toLetterDistribution l = letterDistribution |> Map.findWithDefault 0 l
 
-letterEntropy :: Distribution Letter
-letterEntropy = entropy $ concat wordBank
-
-totalLetterEntropy :: RankingStrategy
-totalLetterEntropy _ w =
-  nub w
-    |> map toLetterEntropy
-    |> sum
-  where
-    toLetterEntropy l = letterEntropy |> Map.findWithDefault 0 l
-
 minMaxPartitionSize :: RankingStrategy
 minMaxPartitionSize wb w =
   partitionWords w wb
@@ -93,8 +81,5 @@ minMaxPartitionSize wb w =
 partitionEntropy :: RankingStrategy
 partitionEntropy wb w =
   partitionWords w wb
-    |> map (\(x, y) -> (x, length y))
-    |> Map.fromList
-    |> entropyFromHistogram
-    |> Map.elems
-    |> sum
+    |> map (snd .> length)
+    |> entropyFromFreq
