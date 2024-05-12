@@ -15,14 +15,14 @@ solve FastSolver1 as = solveHelper1 totalLetterDistribution as
 solve SlowSolver1 as = solveHelper2 minMaxPartitionSize as
 solve SlowSolver2 as = solveHelper2 partitionEntropy as
 solve MixedSolver1 as
-  | n == 0 = "TRACE"
+  | n == 0 = "SALET"
   | n == 1 = solve NaiveSolver as
   | n == 2 = solve SlowSolver2 as
   | otherwise = solve SlowSolver1 as
   where
     n = length as
 solve MixedSolver2 as
-  | n == 0 = "TRACE"
+  | n == 0 = "SALET"
   | n == 1 = solve SlowSolver2 as
   | otherwise = solve SlowSolver1 as
   where

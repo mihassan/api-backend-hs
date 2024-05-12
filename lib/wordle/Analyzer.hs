@@ -54,7 +54,7 @@ totalCostForSolver s wb as = guessCost + sum costs
 simulate :: Solver -> Word -> Attempts
 simulate s w = go [initialAttempt] |> reverse
   where
-    initialAttempt = Attempt {word = "TRACE", feedback = checkGuess w "TRACE"}
+    initialAttempt = Attempt {word = "SALET", feedback = checkGuess w "SALET"}
     mkAttempt :: Word -> Attempt
     mkAttempt g = Attempt {word = g, feedback = checkGuess w g}
     go :: Attempts -> Attempts

@@ -27,7 +27,7 @@ document.addEventListener("alpine:init", () => {
     initAttempts() {
       this.attempts = [
         {
-          word: "TRACE",
+          word: "SALET",
           feedback: Array(5).fill("Absent"),
         },
       ];
