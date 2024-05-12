@@ -7,7 +7,7 @@ const NEXT_ATTEMPT = {
 const COLORS = {
   Correct: "green",
   Misplaced: "yellow",
-  Absent: "grey",
+  Absent: "gray",
 };
 
 document.addEventListener("alpine:init", () => {

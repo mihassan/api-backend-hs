@@ -38,15 +38,15 @@ h1 {
 }
 
 .cell.green {
-  background-color: #4caf50;
+  background-color: #6ca965;
 }
 
 .cell.yellow {
-  background-color: #ffeb3b;
+  background-color: #c8b653;
 }
 
-.cell.grey {
-  background-color: #aeaeae;
+.cell.gray {
+  background-color: #787c7f;
 }
 
 footer {
