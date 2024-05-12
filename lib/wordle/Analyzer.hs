@@ -15,9 +15,9 @@ import Wordle.Solver
 import Wordle.Types
 import Prelude hiding (Word)
 
-analyze :: Solver -> WordBank -> AnalysisReport
-analyze s wb =
-  map (simulate s) wb
+analyze :: Solver -> Word -> WordBank -> AnalysisReport
+analyze s g wb =
+  map (simulate s g) wb
     |> map length
     |> histogram
     |> mkAnalysisReport
@@ -31,9 +31,9 @@ mkAnalysisReport h =
       minAttempts = histMin h
     }
 
-difficultWords :: Int -> Solver -> WordBank -> [(Word, Int)]
-difficultWords n s wb =
-  map (simulate s) wb
+difficultWords :: Int -> Solver -> Word -> WordBank -> [(Word, Int)]
+difficultWords n s g wb =
+  map (simulate s g) wb
     |> map length
     |> zip wb
     |> filter ((> n) . snd)
@@ -51,12 +51,12 @@ totalCostForSolver s wb as = guessCost + sum costs
       let as' = Attempt guess fb : as
        in length wb' + totalCostForSolver s wb' as'
 
-simulate :: Solver -> Word -> Attempts
-simulate s w = go [initialAttempt] |> reverse
+simulate :: Solver -> Word -> Word -> Attempts
+simulate s g w = go [initialAttempt] |> reverse
   where
-    initialAttempt = Attempt {word = "SALET", feedback = checkGuess w "SALET"}
+    initialAttempt = Attempt {word = g, feedback = checkGuess w g}
     mkAttempt :: Word -> Attempt
-    mkAttempt g = Attempt {word = g, feedback = checkGuess w g}
+    mkAttempt x = Attempt {word = x, feedback = checkGuess w x}
     go :: Attempts -> Attempts
     go as
       | isSolved as = as
