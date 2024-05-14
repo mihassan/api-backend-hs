@@ -15,8 +15,6 @@ document.addEventListener("alpine:init", () => {
     attempts: [],
     selectedSolver: "RandomSolver",
     solvers: [
-      "RandomSolver",
-      "NaiveSolver",
       "FastSolver1",
       "MixedSolver1",
       "MixedSolver2",

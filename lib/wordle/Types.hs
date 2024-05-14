@@ -7,7 +7,6 @@ module Wordle.Types
     Attempt (..),
     Attempts,
     Solver (..),
-    RankingStrategy,
     AnalysisReport (..),
   )
 where
@@ -54,9 +53,7 @@ type Attempts = [Attempt]
 
 -- | A list of available solvers.
 data Solver
-  = RandomSolver
-  | NaiveSolver
-  | FastSolver1
+  = FastSolver1
   | MixedSolver1
   | MixedSolver2
   | SlowSolver1
@@ -64,11 +61,6 @@ data Solver
   deriving (Show, Eq, Bounded, Enum, Generic)
 
 instance FromJSON Solver
-
--- | A strategy to rank words in the word bank.
--- Higher value means the word is more likely to be the hidden word.
--- The range of the value is not specified.
-type RankingStrategy = WordBank -> Word -> Double
 
 -- | An analysis report for a solver to evaluate its performance.
 data AnalysisReport = AnalysisReport
