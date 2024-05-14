@@ -13,19 +13,6 @@ solve _ [] = "SALET"
 solve FastSolver1 as = solveHelper1 totalLetterDistribution as
 solve SlowSolver1 as = solveHelper2 minMaxPartitionSize as
 solve SlowSolver2 as = solveHelper2 partitionEntropy as
-solve MixedSolver1 as
-  | n == 0 = "SALET"
-  | n == 1 = solve FastSolver1 as
-  | n == 2 = solve SlowSolver2 as
-  | otherwise = solve SlowSolver1 as
-  where
-    n = length as
-solve MixedSolver2 as
-  | n == 0 = "SALET"
-  | n == 1 = solve SlowSolver2 as
-  | otherwise = solve SlowSolver1 as
-  where
-    n = length as
 
 solveHelper1 :: (WordBank -> Word -> Double) -> Attempts -> Word
 solveHelper1 rs as = maximumOn (rs wb) wb

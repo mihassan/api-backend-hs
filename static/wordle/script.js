@@ -14,13 +14,7 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
     selectedSolver: "RandomSolver",
-    solvers: [
-      "FastSolver1",
-      "MixedSolver1",
-      "MixedSolver2",
-      "SlowSolver1",
-      "SlowSolver2",
-    ],
+    solvers: ["FastSolver1", "SlowSolver1", "SlowSolver2"],
 
     initAttempts() {
       this.attempts = [

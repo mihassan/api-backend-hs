@@ -54,8 +54,6 @@ type Attempts = [Attempt]
 -- | A list of available solvers.
 data Solver
   = FastSolver1
-  | MixedSolver1
-  | MixedSolver2
   | SlowSolver1
   | SlowSolver2
   deriving (Show, Eq, Bounded, Enum, Generic)
