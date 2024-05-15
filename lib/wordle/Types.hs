@@ -53,9 +53,9 @@ type Attempts = [Attempt]
 
 -- | A list of available solvers.
 data Solver
-  = FastSolver1
-  | SlowSolver1
-  | SlowSolver2
+  = LetterCountSolver
+  | MinimizeMaxPartitionSolver
+  | EvenPartitionSolver
   deriving (Show, Eq, Bounded, Enum, Generic)
 
 instance FromJSON Solver

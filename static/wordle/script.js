@@ -13,8 +13,12 @@ const COLORS = {
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
-    selectedSolver: "RandomSolver",
-    solvers: ["FastSolver1", "SlowSolver1", "SlowSolver2"],
+    selectedSolver: "LetterCountSolver",
+    solvers: [
+      "LetterCountSolver",
+      "MinimizeMaxPartitionSolver",
+      "EvenPartitionSolver",
+    ],
 
     initAttempts() {
       this.attempts = [
