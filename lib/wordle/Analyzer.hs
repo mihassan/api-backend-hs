@@ -13,6 +13,7 @@ import Data.List
 import Wordle.Matcher
 import Wordle.Solver
 import Wordle.Types
+import Wordle.WordBank
 import Prelude hiding (Word)
 
 analyze :: Solver -> Word -> WordBank -> AnalysisReport
@@ -44,7 +45,7 @@ totalCostForSolver _ [_] _ = 1
 totalCostForSolver _ [_, _] _ = 3
 totalCostForSolver s wb as = guessCost + sum costs
   where
-    guess = solve s as
+    guess = solve s wb
     guessCost = if guess `elem` wb then 1 else 0
     costs = (wb \\ [guess]) |> partitionWords guess |> map go
     go (fb, wb') =
@@ -61,7 +62,7 @@ simulate s g w = go [initialAttempt] |> reverse
     go as
       | isSolved as = as
       | otherwise =
-          solve s as
+          solve s (filterWords wordBank as)
             |> mkAttempt
             |> (: as)
             |> go

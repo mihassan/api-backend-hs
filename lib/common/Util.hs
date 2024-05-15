@@ -18,6 +18,7 @@ module Common.Util
     distribution,
 
     -- * Entropy related functions
+    surprise,
     entropyFromFreq,
   )
 where
@@ -135,6 +136,19 @@ distribution xs = histogram xs |> Map.map normalize
     total = length xs |> fromIntegral
     normalize = fromIntegral .> (/ total)
 
+-- | Compute the surprise value from a probability.
+--
+-- >>> surprise 0.5
+-- 1.0
+--
+-- >>> surprise 0.25
+-- 2.0
+--
+-- >>> surprise 1.0
+-- -0.0
+surprise :: Double -> Double
+surprise = logBase 2 .> negate
+
 -- | Compute the entropy from frequency.
 --
 -- >>> entropyFromFreq [1, 1]
@@ -153,4 +167,4 @@ entropyFromFreq xs =
     |> sum
   where
     total = sum xs |> fromIntegral
-    toEntropy p = -p * logBase 2 p
+    toEntropy p = p * surprise p

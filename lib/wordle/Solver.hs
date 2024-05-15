@@ -8,46 +8,31 @@ import Wordle.Types
 import Wordle.WordBank
 import Prelude hiding (Word)
 
-solve :: Solver -> Attempts -> Word
+solve :: Solver -> WordBank -> Word
 solve _ [] = "SALET"
-solve FastSolver1 as = solveHelper1 totalLetterDistribution as
-solve SlowSolver1 as = solveHelper2 minMaxPartitionSize as
-solve SlowSolver2 as = solveHelper2 partitionEntropy as
+solve FastSolver1 wb = maximumOn (letterCount wb) wb
+solve SlowSolver1 wb = solveHelper minMaxPartitionSize wb
+solve SlowSolver2 wb = solveHelper partitionEntropy wb
 
-solveHelper1 :: (WordBank -> Word -> Double) -> Attempts -> Word
-solveHelper1 rs as = maximumOn (rs wb) wb
+solveHelper :: (WordBank -> Word -> Double) -> WordBank -> Word
+solveHelper rs wb = candidates |> maximumOn (rs wb)
   where
-    wb = filterWords wordBank as
-
-solveHelper2 :: (WordBank -> Word -> Double) -> Attempts -> Word
-solveHelper2 rs as = candidates |> maximumOn (rs wb)
-  where
-    wb = filterWords wordBank as
     candidates
       | length wb < 3 = wb -- If there are only 2 words left, just return one of them.
-      | otherwise = computeCandidates as
+      | otherwise = computeCandidates wb
 
-computeCandidates :: Attempts -> WordBank
-computeCandidates as = wb1 ++ wb2 |> nub
+computeCandidates :: WordBank -> WordBank
+computeCandidates wb = wb ++ wb' |> nub
   where
-    -- Try all possible guess words.
-    wb1 = filterWords wordBank as
     -- Try few more words which may not be the guess word, but could be helpful to partiton possible words into evenly distributed groups.
-    wb2 = take 500 . reverse $ sortOn rank wordBank
-    d = concat wb1 |> distribution |> Map.map letterSurprise
-    letterSurprise = logBase 2 .> negate
+    wb' = take 500 . reverse $ sortOn rank wordBank
+    d = concat wb |> distribution |> Map.map surprise
     rank = nub .> map (\l -> Map.findWithDefault 0 l d) .> sum
 
-letterDistribution :: Distribution Letter
-letterDistribution = distribution $ concat wordBank
-
-totalLetterDistribution :: WordBank -> Word -> Double
-totalLetterDistribution _ w =
-  nub w
-    |> map toLetterDistribution
-    |> sum
+letterCount :: WordBank -> Word -> Double
+letterCount wb w = nub w |> map f |> sum
   where
-    toLetterDistribution l = letterDistribution |> Map.findWithDefault 0 l
+    f l = concat wb |> distribution |> Map.findWithDefault 0 l
 
 minMaxPartitionSize :: WordBank -> Word -> Double
 minMaxPartitionSize wb w =
