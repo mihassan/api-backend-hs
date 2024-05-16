@@ -1,0 +1,453 @@
+
+
+Running analysis for solver: LetterCountSolver starting with word: SLATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,146),(3,943),(4,931),(5,224),(6,50),(7,14),(8,5),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.634125269978402}
+
+Difficult words: [("BITTY",6),("BROOK",6),("CATCH",7),("CHEER",6),("DADDY",6),("FERRY",6),("FOYER",6),("FREED",6),("FREER",6),("FROWN",6),("FROZE",6),("GRAZE",6),("GREED",7),("GRILL",6),("GROSS",6),("GROWN",7),("HATCH",8),("HILLY",6),("HOLLY",6),("HOMER",7),("HURRY",6),("JAUNT",6),("JOKER",8),("JOLLY",7),("KITTY",7),("KRILL",7),("MOIST",6),("MOUND",6),("MOVER",6),("NOOSE",6),("PADDY",7),("PARRY",6),("PLANE",6),("POPPY",6),("POUND",7),("PRIZE",6),("PUNCH",6),("REFER",6),("REVEL",6),("ROGER",9),("ROVER",7),("ROWER",6),("SASSY",6),("SHARE",6),("SHAVE",7),("SHEER",6),("STASH",6),("STOOD",6),("STOUT",6),("STUMP",6),("SWEAR",6),("TASTE",6),("TATTY",6),("TAUNT",7),("TENTH",6),("VAUNT",8),("WASTE",7),("WATCH",6),("WAVER",6),("WIDTH",6),("WIGHT",6),("WILLY",7),("WIMPY",6),("WINCH",6),("WITCH",6),("WITTY",8),("WOODY",6),("WOOLY",6),("WOUND",8),("WREAK",6)]
+CPU time:   4.35s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: SLATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,88),(3,1045),(4,1094),(5,86),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.5092872570194387}
+
+Difficult words: [("POKER",6)]
+CPU time: 639.71s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: SLATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,73),(3,1187),(4,984),(5,69),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4535637149028076}
+
+Difficult words: [("JOKER",6)]
+CPU time: 686.06s
+
+
+Running analysis for solver: LetterCountSolver starting with word: STALE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,141),(3,906),(4,954),(5,239),(6,54),(7,14),(8,5),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.6643628509719224}
+
+Difficult words: [("BROOK",6),("CATCH",7),("CHEER",6),("DADDY",6),("FERRY",6),("FOYER",6),("FREED",6),("FREER",6),("FROWN",6),("FROZE",6),("GOLLY",6),("GRAZE",6),("GREED",7),("GROSS",6),("GROWN",7),("GULLY",6),("HATCH",8),("HILLY",6),("HOLLY",7),("HOMER",7),("HURRY",6),("JAUNT",6),("JELLY",6),("JOKER",8),("JOLLY",8),("KITTY",6),("KRILL",6),("LAPEL",6),("MOIST",6),("MOUND",6),("MOVER",6),("NOOSE",6),("PADDY",7),("PARRY",6),("PETAL",6),("PLANE",6),("POPPY",6),("POUND",7),("PRIZE",6),("PUNCH",6),("RATTY",6),("REFER",6),("REVEL",6),("ROGER",9),("ROVER",7),("ROWER",6),("SASSY",6),("SHARE",6),("SHAVE",7),("SHEER",6),("STASH",6),("STAVE",6),("STOOP",6),("STOUT",6),("STUMP",6),("SWEAR",6),("TAPER",6),("TASTE",6),("TATTY",7),("T
+CPU time:   4.46s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: STALE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,88),(3,995),(4,1136),(5,94),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.534341252699784}
+
+Difficult words: [("POKER",6)]
+CPU time: 672.97s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: STALE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,72),(3,1148),(4,1022),(5,71),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4721382289416844}
+
+Difficult words: [("JOKER",6)]
+CPU time: 685.77s
+
+
+Running analysis for solver: LetterCountSolver starting with word: TRACE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,149),(3,935),(4,915),(5,252),(6,48),(7,11),(8,4)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.6375809935205186}
+
+Difficult words: [("BOXER",6),("CATCH",7),("CLINK",6),("CRAZY",6),("DITTY",6),("FEWER",6),("FOYER",7),("FULLY",6),("GIVER",6),("GROWL",6),("GULLY",7),("HATCH",8),("HILLY",6),("HOLLY",6),("HOVER",8),("HURRY",6),("JAUNT",6),("JAZZY",6),("JOLLY",7),("KITTY",7),("KNACK",6),("LEVER",6),("MAKER",6),("MERRY",6),("MINER",6),("MOUND",6),("MUSTY",6),("NIGHT",6),("PADDY",6),("PENCE",6),("PLANE",6),("POKER",6),("POPPY",6),("POUND",7),("PROVE",6),("PROXY",6),("PUNCH",6),("PUSHY",6),("QUEER",6),("RARER",6),("ROWER",6),("SALSA",6),("SHAPE",6),("SHAVE",7),("SLUSH",6),("STAMP",6),("STOOL",6),("STOVE",6),("STUMP",6),("SWEAR",6),("SWORE",6),("TATTY",6),("TRUTH",6),("VAUNT",7),("WATCH",6),("WAVER",7),("WIGHT",7),("WILLY",7),("WIMPY",6),("WINCH",6),("WITTY",8),("WOOLY",6),("WOUND",8)]
+CPU time:   4.48s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: TRACE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,98),(3,1000),(4,1127),(5,88),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.5209503239740823}
+
+Difficult words: [("JOKER",6)]
+CPU time: 638.54s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: TRACE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,82),(3,1155),(4,1011),(5,63),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4587473002159825}
+
+Difficult words: [("JOKER",6),("RARER",6),("ROVER",6)]
+CPU time: 642.91s
+
+
+Running analysis for solver: LetterCountSolver starting with word: CARTE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,146),(3,930),(4,915),(5,251),(6,55),(7,12),(8,5),(9,1)], minAttempts = 2, maxAttempts = 9, avgAttempts = 3.654427645788337}
+
+Difficult words: [("BITTY",6),("BOXER",7),("CRAZY",6),("CROUP",6),("DITTY",7),("FIXER",6),("FOYER",8),("FREER",6),("FULLY",6),("GREED",6),("GROWL",6),("GULLY",7),("HATCH",7),("HILLY",6),("HOLLY",6),("JAZZY",6),("JOKER",6),("JOLLY",7),("KITTY",8),("KNACK",6),("LADLE",6),("LAPEL",6),("MAKER",6),("MAYOR",6),("MERRY",6),("MOUND",6),("MUSTY",6),("NEVER",6),("NIGHT",6),("PADDY",6),("PATCH",6),("PENCE",6),("PLANE",6),("POKER",7),("POPPY",6),("POUND",7),("PROXY",6),("PUNCH",6),("PUSHY",6),("REFER",6),("REVEL",6),("RISER",6),("ROGER",6),("ROVER",6),("ROWER",6),("SALSA",6),("SHAPE",6),("SHEER",6),("SLUSH",6),("SNEER",7),("SPEAR",6),("STASH",6),("STOOL",6),("STUMP",6),("TAINT",6),("TALLY",6),("TAUNT",6),("TIGHT",7),("TOOTH",6),("VAUNT",7),("VERGE",6),("WASTE",6),("WATCH",8),("WAVER",6),("WIDTH",6),("WIGHT",8),("WILLY",7),("WIMPY",6),("WISER",7),("WITCH",6),("WITTY",9),("WOOLY",6),("WOUND",8)]
+CPU time:   4.41s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: CARTE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,104),(3,973),(4,1171),(5,67)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.5187904967602592}
+CPU time: 312.66s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: CARTE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,89),(3,1110),(4,1058),(5,57),(6,1)], minAttempts = 2, maxAttempts = 6, avgAttempts = 3.4691144708423325}
+
+Difficult words: [("JOKER",6)]
+CPU time: 636.19s
+
+
+Running analysis for solver: LetterCountSolver starting with word: CRATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,147),(3,951),(4,892),(5,254),(6,54),(7,11),(8,4),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.6406047516198705}
+
+Difficult words: [("BITTY",6),("BOXER",6),("CRAZY",6),("DITTY",7),("ESTER",6),("FEWER",6),("FOYER",7),("FULLY",6),("GIVER",6),("GROWL",6),("GULLY",7),("HATCH",6),("HILLY",6),("HOLLY",6),("HOVER",8),("HURRY",6),("JAUNT",6),("JAZZY",6),("JOLLY",7),("KITTY",8),("KNACK",6),("LEVER",6),("MAKER",6),("MERRY",6),("METER",6),("MINER",6),("MOUND",6),("MUSTY",6),("NIGHT",6),("PADDY",6),("PENCE",6),("PLANE",6),("POKER",6),("POPPY",6),("POUND",7),("PROVE",6),("PROXY",6),("PUNCH",6),("PUSHY",6),("QUEER",6),("RARER",6),("ROWER",6),("SAINT",6),("SALSA",6),("SHAPE",6),("SHAVE",7),("SLUSH",6),("STASH",6),("STOOL",6),("STORY",6),("STUMP",6),("SWEAR",6),("SWORE",6),("TAPER",6),("TATTY",6),("TIGHT",7),("TOOTH",6),("TRUSS",6),("VAUNT",7),("WASTE",6),("WATCH",7),("WAVER",7),("WIDTH",6),("WIGHT",8),("WILLY",7),("WIMPY",6),("WITCH",6),("WITTY",9),("WOOLY",6),("WOUND",8)]
+CPU time:   4.63s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: CRATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,104),(3,990),(4,1133),(5,86),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.519222462203024}
+
+Difficult words: [("JOKER",6)]
+CPU time: 626.49s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: CRATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,87),(3,1151),(4,1009),(5,64),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.45658747300216}
+
+Difficult words: [("JOKER",6),("RARER",6),("ROVER",6)]
+CPU time: 632.26s
+
+
+Running analysis for solver: LetterCountSolver starting with word: CARET
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,145),(3,934),(4,902),(5,262),(6,57),(7,12),(8,3)], minAttempts = 2, maxAttempts = 8, avgAttempts = 3.654427645788337}
+
+Difficult words: [("BOXER",7),("CRAZY",6),("CROUP",6),("FIXER",6),("FOYER",8),("FREER",6),("FULLY",6),("GREED",6),("GROWL",6),("GULLY",7),("HATCH",6),("HILLY",6),("HOLLY",6),("JAZZY",6),("JOKER",6),("JOLLY",7),("KNACK",6),("LADLE",6),("LAPEL",6),("MAKER",6),("MAYOR",6),("MERRY",6),("MOUND",6),("MUSTY",6),("NEVER",6),("NIGHT",6),("PADDY",6),("PLANE",6),("POKER",7),("POPPY",6),("POUND",7),("PRIZE",6),("PROXY",6),("PUNCH",6),("PUSHY",6),("REFER",6),("RERUN",6),("REVEL",6),("RISER",6),("ROGER",6),("ROVER",6),("ROWER",6),("SALSA",6),("SHEER",6),("SLAVE",7),("SLUSH",6),("SNEER",7),("SPEAR",6),("STASH",6),("STOOL",6),("STOVE",6),("STUMP",6),("SWELL",6),("TAINT",6),("TATTY",6),("TAUNT",6),("TENTH",6),("TIGHT",7),("TRUTH",6),("VAUNT",7),("WASTE",6),("WATCH",7),("WAVER",6),("WIGHT",8),("WILLY",7),("WIMPY",6),("WISER",7),("WITCH",6),("WITTY",6),("WOOLY",6),("WOUND",8),("YIELD",6)]
+CPU time:   4.41s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: CARET
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,98),(3,974),(4,1170),(5,73)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.5261339092872572}
+CPU time: 329.95s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: CARET
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,81),(3,1106),(4,1065),(5,62),(6,1)], minAttempts = 2, maxAttempts = 6, avgAttempts = 3.479913606911447}
+
+Difficult words: [("JOKER",6)]
+CPU time: 672.65s
+
+
+Running analysis for solver: LetterCountSolver starting with word: CRANE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,141),(3,924),(4,924),(5,245),(6,61),(7,17),(8,2)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.6617710583153347}
+
+Difficult words: [("BAKER",6),("BOOZY",6),("BOXER",6),("CRACK",6),("CRAZY",7),("FOYER",7),("FULLY",6),("GIDDY",6),("GIVER",6),("GRAZE",6),("GROWL",6),("GULLY",7),("HATCH",6),("HILLY",6),("HURRY",6),("IRATE",6),("JOLLY",6),("JUDGE",6),("KITTY",6),("LADLE",6),("LEVER",6),("LINER",6),("LOWLY",6),("MAMMY",6),("MINER",7),("MISER",6),("MOIST",6),("MOUND",6),("MOVER",6),("MUSTY",6),("PADDY",6),("PARER",6),("POKER",6),("POPPY",6),("POUND",7),("POWER",6),("PROXY",6),("PUNCH",6),("PUSHY",6),("QUILT",6),("RARER",7),("RIDER",6),("RIPER",6),("RISER",7),("RIVER",7),("ROGER",8),("ROVER",7),("ROWER",7),("RUDER",6),("RULER",7),("SAFER",6),("SEWER",6),("SHAPE",6),("SHAVE",7),("SLUSH",6),("SPUNK",6),("STORY",6),("STOUT",6),("SWEAR",6),("SWORE",6),("TAINT",6),("TAPER",6),("TASTE",6),("TATTY",6),("TAUNT",6),("THING",6),("TRUTH",6),("USHER",6),("VAUNT",7),("VYING",6),("WASTE",7),("WATCH",7),("WAVER",6),("WIDER",6),("WIGHT",6),("WILLY",7),("WITCH",6),("WITTY",7),("WOOLY",6),("WOUND",8)]
+CPU time:   4.63s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: CRANE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,92),(3,958),(4,1155),(5,109)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.5524838012958964}
+CPU time: 344.43s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: CRANE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,79),(3,1161),(4,1002),(5,70),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4609071274298056}
+
+Difficult words: [("FIXER",6),("JOKER",6)]
+CPU time: 696.06s
+
+
+Running analysis for solver: LetterCountSolver starting with word: RAISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,131),(3,916),(4,884),(5,294),(6,69),(7,17),(8,2),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.7041036717062634}
+
+Difficult words: [("BOXER",6),("BUGGY",6),("CATCH",8),("CRAZE",6),("CRAZY",6),("EATER",6),("EMBER",6),("FLAME",6),("FOYER",7),("FROZE",6),("FULLY",6),("GAZER",6),("GLAZE",6),("GONER",8),("GOOEY",6),("GRAVE",6),("GRAVY",6),("GRAZE",7),("GREED",6),("GROWN",6),("GULLY",7),("HATCH",9),("HILLY",6),("HUNCH",6),("JELLY",6),("JOLLY",6),("KITTY",6),("LAPEL",6),("MAMMY",6),("MERRY",6),("MOOSE",6),("MOUND",6),("MOVER",6),("MUMMY",6),("MUSTY",6),("NANNY",6),("NOBLY",6),("NOOSE",7),("PADDY",6),("PATCH",6),("PATTY",6),("PETAL",6),("PIGGY",6),("PIXIE",6),("PLANK",6),("POKER",6),("POPPY",6),("POUND",7),("POWER",6),("PRIZE",6),("PUNCH",7),("PUSHY",6),("ROWER",6),("SAUCY",6),("SCOOP",6),("SHAME",6),("SHAVE",7),("SLUSH",6),("SMASH",6),("SNEER",6),("STARE",6),("STASH",7),("STEER",7),("STOOD",6),("STORE",6),("STORY",6),("STOUT",6),("STUMP",6),("SWARM",6),("SWORE",7),("TALLY",6),("TASTE",6),("TASTY",6),("TATTY",7),("TRIED",6),("TRUTH",6),("VAUNT",6),("WACKY",7),("WASTE",7),("WATCH",7),("WATER",7),("WAVER",6),("WIGHT",6),("WILLY",7),("WINCH",6),("WITCH",6),("WITTY",7),("WREAK",6),("YIELD",6)]
+CPU time:   4.18s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: RAISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,73),(3,946),(4,1182),(5,113)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.5758099352051835}
+CPU time: 256.50s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: RAISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,61),(3,1139),(4,1021),(5,91),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4950323974082074}
+
+Difficult words: [("HOVER",6),("OFFER",6)]
+CPU time: 526.94s
+
+
+Running analysis for solver: LetterCountSolver starting with word: ARISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,122),(3,895),(4,893),(5,296),(6,83),(7,21),(8,3),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.7408207343412525}
+
+Difficult words: [("BOXER",7),("BROOM",6),("BUGGY",6),("CATCH",8),("CRAZE",6),("CRAZY",6),("DADDY",6),("EMBER",6),("FILER",6),("FIXER",7),("FLAME",6),("FOYER",8),("FULLY",6),("GAZER",6),("GLAZE",6),("GOOEY",6),("GRAVE",6),("GRAZE",7),("GREED",6),("GROVE",6),("GULLY",7),("HATCH",9),("HILLY",6),("HUNCH",6),("JAUNT",6),("JELLY",6),("JOKER",6),("JOLLY",6),("KITTY",6),("LADLE",6),("LAPEL",6),("LIVER",6),("MAKER",6),("MAMMY",6),("MARRY",6),("MAXIM",6),("MERRY",6),("MINER",6),("MOOSE",6),("MOUND",6),("MOVER",6),("MUMMY",6),("MUSTY",6),("NANNY",6),("NOBLY",6),("NOOSE",7),("PADDY",7),("PANEL",6),("PATCH",6),("PATTY",6),("PAYER",6),("PIGGY",6),("PIXIE",6),("PLANE",6),("PLANK",6),("POKER",7),("POPPY",6),("POUND",7),("POWER",6),("PRIZE",6),("PUNCH",7),("PUSHY",6),("QUART",6),("RARER",6),("RIVER",7),("ROGER",6),("ROVER",7),("ROWER",7),("RULER",6),("SAUCY",6),("SCOOP",6),("SHAME",6),("SHAPE",7),("SHAVE",8),("SLUSH",6),("SNEER",6),("STARE",6),("STASH",6),("STAVE",6),("STEER",7),("STOOD",6),("STORE",6),("STORY",6),("STOUT",6),("STUMP",6),("SUAVE",6),("SWARM",6),("SWASH",7),("SWEAR",6),("SWORE",7),("TAROT",6),("TASTE",6),("TASTY",6),("TATTY",6),("TRIED",6),("TRUTH",6),("VAUNT",7),("WASTE",7),("WATCH",7),("WATER",6),("WIDER",6),("WIGHT",6),("WILLY",7),("WINCH",6),("WITCH",6),("WITTY",7),("WREAK",6),("YIELD",6)]
+CPU time:   4.16s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: ARISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,64),(3,964),(4,1154),(5,131),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.584449244060475}
+
+Difficult words: [("MOVER",6)]
+CPU time: 533.28s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: ARISE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,53),(3,1137),(4,1026),(5,95),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.5053995680345573}
+
+Difficult words: [("COVER",6),("JOKER",6),("WAVER",6)]
+CPU time: 543.46s
+
+
+Running analysis for solver: LetterCountSolver starting with word: SLANT
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,130),(3,912),(4,971),(5,245),(6,43),(7,12),(8,1)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.652699784017279}
+
+Difficult words: [("BERRY",6),("BOXER",7),("CADDY",6),("COWER",6),("FERRY",7),("GRAZE",6),("GROWN",6),("GULLY",6),("HATCH",6),("HILLY",6),("HOLLY",6),("JAZZY",6),("JELLY",6),("JEWEL",6),("JOKER",6),("JOLLY",7),("KRILL",6),("LABEL",6),("LAPEL",7),("MAMMA",6),("MAYBE",6),("MOUND",6),("NANNY",6),("PADDY",7),("POKER",7),("POUND",7),("PRESS",6),("PUNCH",6),("REFER",6),("REPEL",6),("ROVER",6),("ROWER",6),("RUSTY",6),("SHARE",6),("SHAVE",7),("SPELL",6),("STASH",6),("STOOP",6),("TASTE",6),("TATTY",6),("TAUNT",6),("TRITE",6),("VAUNT",7),("WAGER",6),("WASTE",7),("WATCH",7),("WAVER",6),("WEDGE",6),("WIGHT",6),("WILLY",7),("WINCH",6),("WITCH",6),("WITTY",6),("WOOZY",6),("WOUND",8),("WREAK",6)]
+CPU time:   4.73s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: SLANT
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,84),(3,1007),(4,1127),(5,95),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.53304535637149}
+
+Difficult words: [("HOVER",6)]
+CPU time: 899.35s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: SLANT
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,75),(3,1153),(4,1019),(5,66),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.4652267818574516}
+
+Difficult words: [("JOKER",6)]
+CPU time: 909.90s
+
+
+Running analysis for solver: LetterCountSolver starting with word: STARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,132),(3,910),(4,948),(5,250),(6,57),(7,12),(8,3),(9,2)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.673866090712743}
+
+Difficult words: [("BOXER",6),("CATCH",8),("CHEER",6),("CLIMB",6),("CRAZY",6),("DADDY",6),("FIXER",6),("FLOCK",6),("FLOOD",6),("FOYER",7),("FREED",6),("FREER",6),("FULLY",6),("GAZER",6),("GRAZE",6),("GREED",7),("GROWN",6),("HATCH",9),("HILLY",6),("HOMER",8),("HOUND",6),("JAUNT",6),("JOKER",9),("JOLLY",6),("KITTY",6),("KRILL",6),("MOUND",7),("MOVER",6),("NEVER",6),("NOOSE",6),("NUDGE",6),("PADDY",7),("PATCH",6),("PATTY",6),("PAYER",6),("POPPY",6),("POUND",8),("PRESS",6),("PRIED",6),("PRIZE",6),("PUNCH",6),("PUSHY",6),("QUILT",6),("RARER",6),("REFER",6),("REVEL",6),("ROGER",6),("ROVER",7),("ROWER",6),("SAUCY",6),("SEVER",6),("SHAPE",6),("SHAVE",7),("SNEER",7),("STASH",6),("STAVE",6),("STOOL",6),("STOUT",6),("STUMP",6),("SWEAR",6),("SWORE",6),("TASTE",6),("TATTY",6),("TRUTH",6),("VAUNT",7),("VOUCH",6),("WASTE",7),("WATCH",7),("WATER",6),("WILLY",7),("WINCH",6),("WINDY",6),("WITCH",6),("WITTY",7)]
+CPU time:   4.41s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: STARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,66),(3,1001),(4,1136),(5,111)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.5572354211663066}
+CPU time: 307.99s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: STARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,60),(3,1171),(4,1005),(5,75),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.476025917926566}
+
+Difficult words: [("OFFER",6),("POKER",6),("WAVER",6)]
+CPU time: 619.70s
+
+
+Running analysis for solver: LetterCountSolver starting with word: ROAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,133),(3,905),(4,929),(5,275),(6,56),(7,12),(8,4)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.6825053995680346}
+
+Difficult words: [("BROOM",6),("CATCH",7),("CRAZE",6),("CRAZY",6),("DADDY",6),("DITTY",6),("EAGLE",6),("FIXER",6),("FOYER",6),("GONER",7),("GRAZE",6),("HATCH",8),("HILLY",6),("HIPPY",6),("HURRY",6),("JAUNT",6),("JIFFY",6),("JOLLY",6),("KITTY",7),("LAPEL",6),("MAMMY",6),("MAPLE",7),("MERRY",6),("MOOSE",6),("MOSSY",6),("MOUND",6),("MUSTY",6),("NANNY",6),("NUDGE",6),("PADDY",7),("PARRY",6),("PATTY",6),("PLANE",6),("POUND",7),("PROUD",6),("PROVE",6),("PROXY",6),("SAVVY",6),("SHAPE",6),("SHAVE",7),("SMASH",6),("SNEER",6),("SPOON",6),("STAMP",6),("STEAM",6),("STONE",6),("STOOL",6),("STOUT",6),("STOVE",7),("STUMP",6),("SWARM",6),("SWORE",6),("TAFFY",6),("TAINT",6),("TASTE",6),("TATTY",7),("TAUNT",7),("TIGHT",6),("TRITE",6),("VAUNT",8),("WASTE",7),("WATCH",6),("WATER",6),("WAVER",6),("WILLY",7),("WINCH",6),("WINDY",6),("WITCH",6),("WITTY",8),("WOOZY",6),("WOUND",8),("WREAK",6)]
+CPU time:   4.41s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: ROAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,77),(3,966),(4,1147),(5,124)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.5684665226781855}
+CPU time: 370.55s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: ROAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,66),(3,1145),(4,1033),(5,70)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.4773218142548594}
+CPU time: 378.29s
+
+
+Running analysis for solver: LetterCountSolver starting with word: AISLE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,119),(3,896),(4,930),(5,285),(6,65),(7,15),(8,4)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.7144708423326134}
+
+Difficult words: [("AWAKE",6),("BOXER",6),("BROOM",6),("CATCH",7),("CRAZE",6),("DADDY",6),("FOYER",7),("FROZE",6),("GAZER",6),("GLAZE",6),("GRAVE",6),("GRAZE",7),("GREED",6),("GROWN",6),("HATCH",8),("HILLY",6),("JAUNT",6),("JAZZY",6),("JOLLY",6),("JUROR",6),("KITTY",6),("MAKER",6),("MAMMA",6),("MAMMY",7),("MARRY",6),("MERRY",6),("MOIST",6),("MOUND",6),("NANNY",6),("NOBLY",6),("NUDGE",6),("PADDY",7),("PANEL",6),("PARER",6),("PATTY",6),("POKER",6),("POPPY",6),("POUND",7),("PRANK",6),("PRESS",6),("PRIED",6),("PRIZE",6),("PUNCH",6),("RARER",6),("REVEL",6),("ROGER",8),("ROVER",6),("ROWER",6),("SAPPY",6),("SCOOP",6),("SHAME",6),("SHAVE",7),("SISSY",6),("SLUSH",6),("SPARE",6),("SPITE",6),("SPORT",6),("SPOUT",6),("STAVE",6),("STONY",6),("STOOD",7),("STORE",6),("STORY",6),("STOUT",7),("STUMP",6),("SWASH",6),("SWEAR",6),("SWORE",7),("TASTE",6),("TATTY",6),("TAUNT",7),("TIGHT",6),("TIMER",6),("VAUNT",8),("VOWEL",6),("WASTE",7),("WATCH",6),("WIGHT",7),("WILLY",7),("WINCH",6),("WITCH",6),("WITTY",7),("WOUND",8),("WROTE",6)]
+CPU time:   4.60s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: AISLE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,66),(3,967),(4,1168),(5,111),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.5736501079913605}
+
+Difficult words: [("MOVER",6),("TATTY",6)]
+CPU time: 661.82s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: AISLE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,57),(3,1121),(4,1056),(5,77),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.5010799136069113}
+
+Difficult words: [("BOXER",6),("GONER",6),("JOKER",6)]
+CPU time: 659.45s
+
+
+Running analysis for solver: LetterCountSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,139),(3,939),(4,926),(5,244),(6,51),(7,12),(8,3)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.643196544276458}
+
+Difficult words: [("BOXER",6),("BROOK",6),("CATCH",7),("DADDY",6),("FERRY",6),("FOYER",7),("FROWN",6),("GRAZE",6),("GREED",6),("GROWN",7),("GULLY",6),("HATCH",8),("HILLY",6),("HOLLY",6),("HURRY",6),("JOLLY",7),("JUDGE",6),("KITTY",6),("MAYBE",6),("MONEY",6),("MOUND",6),("NOOSE",6),("PADDY",7),("PARRY",6),("PENCE",6),("PENNE",6),("POKER",6),("POPPY",6),("POUND",7),("PRESS",6),("PUNCH",6),("PUSHY",6),("RARER",6),("ROGER",8),("ROVER",6),("ROWER",6),("SHARE",6),("SHAVE",7),("SMASH",6),("STOOD",6),("STOUT",6),("STUMP",6),("SWEAR",6),("SWORE",6),("TAPER",6),("TASTE",6),("TASTY",6),("TATTY",6),("TAUNT",6),("TIGHT",6),("TRITE",6),("VAUNT",7),("VENUE",6),("WASTE",7),("WATCH",6),("WAVER",6),("WHILE",6),("WIGHT",7),("WILLY",7),("WIMPY",6),("WINCH",6),("WITCH",6),("WITTY",7),("WOODY",6),("WOUND",8),("WREAK",6)]
+CPU time:   4.62s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,85),(3,1009),(4,1116),(5,104)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.534341252699784}
+CPU time: 342.19s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,74),(3,1155),(4,1014),(5,69),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.467386609071274}
+
+Difficult words: [("HOVER",6),("JOKER",6)]
+CPU time: 692.43s
+
+
+Running analysis for solver: LetterCountSolver starting with word: SLICE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,124),(3,908),(4,953),(5,255),(6,53),(7,15),(8,5),(9,1)], minAttempts = 1, maxAttempts = 9, avgAttempts = 3.6855291576673865}
+
+Difficult words: [("BAKER",6),("BOOZY",6),("BOXER",8),("CATCH",7),("CREPE",6),("EMBER",6),("ENVOY",6),("FOLLY",6),("FROZE",6),("FULLY",6),("GRAVE",6),("GRAZE",7),("GROWN",6),("GULLY",7),("HATCH",8),("HILLY",6),("HOUND",6),("HOVER",6),("JAUNT",6),("JAZZY",6),("JOKER",7),("JOLLY",7),("KITTY",6),("KNEEL",6),("KRILL",6),("LOOPY",6),("MAMMY",7),("MERRY",6),("MOUND",7),("NANNY",6),("NEWER",6),("NOBLY",6),("NOOSE",6),("NUDGE",6),("PADDY",6),("PARER",6),("PENCE",6),("POKER",8),("POPPY",6),("POUND",8),("PRIZE",6),("PUNCH",6),("PUSHY",6),("RARER",7),("RESET",6),("REVEL",6),("RIPER",6),("ROGER",6),("ROVER",7),("ROWER",6),("SAVVY",6),("SHAPE",6),("SHAVE",7),("STAVE",6),("SWORE",6),("TASTE",6),("TASTY",6),("TATTY",6),("TAUNT",7),("VAUNT",8),("VOUCH",6),("WASTE",7),("WATCH",6),("WAVER",6),("WEAVE",6),("WHERE",6),("WIDER",6),("WILLY",7),("WIMPY",6),("WITTY",7),("WOOLY",6),("WOUND",9),("WROTE",7),("YIELD",6)]
+CPU time:   4.74s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: SLICE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,67),(3,978),(4,1123),(5,143),(6,3)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.582721382289417}
+
+Difficult words: [("POKER",6),("POWER",6),("TATTY",6)]
+CPU time: 874.28s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: SLICE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,60),(3,1153),(4,1017),(5,83),(6,1)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.485529157667387}
+
+Difficult words: [("ROVER",6)]
+CPU time: 893.97s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: AUDIO
+
+
+Running analysis for solver: LetterCountSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,139),(3,939),(4,926),(5,244),(6,51),(7,12),(8,3)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.643196544276458}
+
+Difficult words: [("BOXER",6),("BROOK",6),("CATCH",7),("DADDY",6),("FERRY",6),("FOYER",7),("FROWN",6),("GRAZE",6),("GREED",6),("GROWN",7),("GULLY",6),("HATCH",8),("HILLY",6),("HOLLY",6),("HURRY",6),("JOLLY",7),("JUDGE",6),("KITTY",6),("MAYBE",6),("MONEY",6),("MOUND",6),("NOOSE",6),("PADDY",7),("PARRY",6),("PENCE",6),("PENNE",6),("POKER",6),("POPPY",6),("POUND",7),("PRESS",6),("PUNCH",6),("PUSHY",6),("RARER",6),("ROGER",8),("ROVER",6),("ROWER",6),("SHARE",6),("SHAVE",7),("SMASH",6),("STOOD",6),("STOUT",6),("STUMP",6),("SWEAR",6),("SWORE",6),("TAPER",6),("TASTE",6),("TASTY",6),("TATTY",6),("TAUNT",6),("TIGHT",6),("TRITE",6),("VAUNT",7),("VENUE",6),("WASTE",7),("WATCH",6),("WAVER",6),("WHILE",6),("WIGHT",7),("WILLY",7),("WIMPY",6),("WINCH",6),("WITCH",6),("WITTY",7),("WOODY",6),("WOUND",8),("WREAK",6)]
+CPU time:   4.60s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,85),(3,1009),(4,1116),(5,104)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.534341252699784}
+CPU time: 375.43s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: LEAST
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,74),(3,1155),(4,1014),(5,69),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.467386609071274}
+
+Difficult words: [("HOVER",6),("JOKER",6)]
+CPU time: 719.75s
+
+
+Running analysis for solver: LetterCountSolver starting with word: STEAL
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,124),(3,858),(4,1002),(5,259),(6,57),(7,11),(8,3)], minAttempts = 1, maxAttempts = 8, avgAttempts = 3.701511879049676}
+
+Difficult words: [("AGATE",6),("BERRY",6),("BOXER",6),("BROOK",6),("CATCH",7),("CRAZY",6),("FERRY",7),("FEWER",6),("FOYER",7),("FROWN",6),("GLAZE",6),("GRAZE",6),("GROSS",6),("GROWN",7),("GULLY",6),("HATCH",8),("HAUNT",6),("HOLLY",6),("HURRY",6),("JOLLY",7),("JUDGE",6),("KITTY",6),("KRILL",6),("LAPEL",6),("MAMMY",6),("MOIST",6),("MONEY",6),("MOUND",6),("NANNY",6),("NOOSE",6),("PADDY",6),("PARER",6),("PARRY",6),("PATTY",6),("PLANK",6),("POKER",6),("POPPY",6),("POUND",7),("PUNCH",6),("RARER",6),("RIPER",6),("RIVER",6),("ROGER",8),("ROVER",6),("ROWER",6),("SASSY",6),("SAUCY",7),("SHAPE",6),("SHAVE",7),("STASH",6),("STAVE",6),("STOOP",6),("STOUT",6),("STUMP",6),("SWORE",6),("TASTE",6),("TASTY",6),("TATTY",6),("TRITE",6),("VAUNT",7),("WASTE",7),("WATCH",6),("WAVER",6),("WIGHT",6),("WILLY",6),("WIMPY",6),("WINCH",6),("WITCH",6),("WITTY",7),("WOODY",6),("WOUND",8)]
+CPU time:   5.71s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: STEAL
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,71),(3,940),(4,1157),(5,146)], minAttempts = 1, maxAttempts = 5, avgAttempts = 3.5943844492440604}
+CPU time: 472.22s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: STEAL
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(1,1),(2,63),(3,1069),(4,1088),(5,92),(6,2)], minAttempts = 1, maxAttempts = 6, avgAttempts = 3.523974082073434}
+
+Difficult words: [("JOKER",6),("PERKY",6)]
+CPU time: 839.12s
+
+
+Running analysis for solver: LetterCountSolver starting with word: SOARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,127),(3,852),(4,950),(5,290),(6,73),(7,19),(8,4)], minAttempts = 2, maxAttempts = 8, avgAttempts = 3.7421166306695466}
+
+Difficult words: [("AMAZE",6),("BOXER",6),("BROOM",6),("CATCH",7),("CLIMB",6),("CRAZE",6),("CRAZY",6),("DADDY",6),("DITTY",6),("FIXER",6),("FOYER",7),("FULLY",6),("GAZER",6),("GIDDY",6),("GOOEY",6),("GRAVE",6),("GRAVY",6),("GRAZE",7),("GREED",6),("GULLY",7),("HATCH",8),("HILLY",6),("HITCH",6),("HUNCH",6),("IRATE",6),("JAUNT",6),("JAZZY",6),("JOLLY",6),("JUDGE",6),("KITTY",7),("KRILL",6),("LIVER",6),("MAKER",6),("MAMMY",7),("MAXIM",6),("MERRY",6),("MOUND",6),("NANNY",6),("NOBLY",6),("NOOSE",6),("PADDY",7),("PATTY",6),("PAYEE",6),("PAYER",6),("PETAL",6),("PINCH",6),("POKER",6),("POPPY",6),("POUND",7),("PRANK",6),("PRESS",6),("PRIED",6),("PRIZE",6),("PROXY",6),("PUNCH",7),("RARER",6),("RIPER",6),("RIVER",7),("ROVER",6),("ROWER",6),("RUGBY",6),("SASSY",6),("SAVVY",7),("SHAME",6),("SHAVE",7),("SNEER",6),("SPOON",6),("STAMP",6),("STARE",6),("STEER",7),("STOOD",6),("STORE",6),("STOUT",6),("SWARM",6),("SWEAR",6),("SWOOP",6),("SWORE",7),("TAINT",6),("TASTE",6),("TATTY",6),("TAUNT",7),("TIGHT",6),("TOWER",7),("TRICK",6),("VAUNT",8),("VOCAL",6),("WASTE",7),("WATCH",6),("WATER",6),("WILLY",7),("WITCH",7),("WITTY",8),("WOUND",8),("WREAK",6),("WROTE",6),("YIELD",6)]
+CPU time:   4.17s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: SOARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,64),(3,918),(4,1227),(5,106)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.5939524838012957}
+CPU time: 267.41s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: SOARE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,50),(3,1131),(4,1040),(5,92),(6,2)], minAttempts = 2, maxAttempts = 6, avgAttempts = 3.509719222462203}
+
+Difficult words: [("HATCH",6),("WAVER",6)]
+CPU time: 532.95s
+
+
+Running analysis for solver: LetterCountSolver starting with word: ROATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,126),(3,912),(4,914),(5,270),(6,67),(7,17),(8,7),(9,2)], minAttempts = 2, maxAttempts = 9, avgAttempts = 3.710151187904968}
+
+Difficult words: [("BROOK",6),("CATCH",8),("CRAZY",6),("DADDY",6),("DITTY",6),("DROOL",6),("FANNY",6),("FIXER",6),("FOYER",6),("FRAME",6),("FROWN",6),("FULLY",6),("GAZER",6),("GLAZE",6),("GONER",7),("GRAZE",6),("GRILL",6),("GROVE",6),("GULLY",7),("HATCH",9),("HAZEL",6),("HILLY",6),("HOMER",8),("HURRY",6),("JAUNT",6),("JOLLY",6),("KITTY",7),("KNACK",6),("KRILL",7),("LADLE",6),("LEVER",6),("LIVER",6),("MAMMY",6),("MOIST",6),("MOUND",6),("MOVER",6),("MUSTY",6),("NANNY",7),("NEWER",6),("NIGHT",6),("NOOSE",6),("NUDGE",6),("PADDY",7),("PARER",6),("PASTE",6),("PATCH",6),("PATTY",6),("PAYEE",6),("PENCE",6),("PETTY",6),("PICKY",6),("PLANE",6),("POUND",7),("POWER",6),("PRIME",6),("PRIZE",7),("PROXY",6),("PUNCH",6),("SANDY",6),("SANER",6),("SASSY",6),("SAVVY",7),("SHAPE",6),("SHAVE",7),("SNEER",6),("SOUND",8),("STAMP",6),("STASH",7),("STOOL",6),("STOUT",6),("STUMP",6),("SWARM",6),("SWORE",6),("TAINT",6),("TAPER",6),("TASTE",7),("TATTY",7),("TAUNT",7),("TIGHT",7),("TOOTH",6),("VAUNT",8),("VOUCH",6),("WASTE",8),("WATCH",7),("WATER",6),("WAVER",6),("WIGHT",8),("WILLY",7),("WINCH",6),("WITCH",6),("WITTY",8),("WOOZY",6),("WOUND",9)]
+CPU time:   4.44s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: ROATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,82),(3,949),(4,1189),(5,95)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.5602591792656586}
+CPU time: 252.15s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: ROATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,66),(3,1110),(4,1068),(5,71)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.494168466522678}
+CPU time: 254.61s
+
+
+Running analysis for solver: LetterCountSolver starting with word: ORATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,127),(3,921),(4,909),(5,258),(6,69),(7,22),(8,7),(9,2)], minAttempts = 2, maxAttempts = 9, avgAttempts = 3.7084233261339095}
+
+Difficult words: [("BOXER",6),("BROOM",6),("CATCH",8),("CRACK",6),("CRAZY",7),("DADDY",6),("DITTY",6),("FANNY",6),("FERRY",6),("FEVER",6),("FEWER",7),("FIXER",6),("FOYER",7),("FRAME",6),("FULLY",6),("GAZER",6),("GLAZE",6),("GRAZE",6),("GROSS",6),("GROWN",6),("GULLY",7),("HATCH",9),("HAZEL",6),("HILLY",6),("HOLLY",6),("HOMER",8),("HURRY",6),("IONIC",6),("JAUNT",6),("JOLLY",7),("KITTY",7),("KNACK",6),("LADLE",6),("MAMMY",6),("MODAL",6),("MOIST",6),("MOUND",6),("MOVER",6),("MUSTY",6),("NANNY",7),("NIGHT",6),("NOOSE",6),("NUDGE",6),("PADDY",7),("PASTE",6),("PATCH",6),("PATTY",6),("PAYEE",6),("PENCE",6),("PERKY",6),("PETTY",6),("PICKY",6),("PIPER",6),("PLANE",6),("POKER",6),("POUND",7),("POWER",6),("PUNCH",6),("RACER",6),("RARER",7),("REFER",6),("RIPER",7),("ROVER",7),("ROWER",7),("RUDER",6),("SANDY",6),("SANER",6),("SASSY",6),("SAVVY",7),("SHAPE",6),("SHAVE",7),("SOLAR",6),("SOUND",8),("STAMP",6),("STASH",7),("STOOL",6),("STOUT",6),("STUMP",6),("SWARM",6),("SWEAR",6),("SWORE",6),("TAINT",6),("TAPER",6),("TASTE",7),("TATTY",7),("TAUNT",7),("TIGHT",7),("VAUNT",8),("WASTE",8),("WATCH",7),("WATER",6),("WIDER",6),("WIGHT",8),("WILLY",7),("WINCH",6),("WISER",6),("WITCH",6),("WITTY",8),("WOOZY",6),("WOUND",9)]
+CPU time:   4.64s
+
+
+Running analysis for solver: MinimizeMaxPartitionSolver starting with word: ORATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,81),(3,940),(4,1198),(5,96)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.5654427645788336}
+CPU time: 270.72s
+
+
+Running analysis for solver: EvenPartitionSolver starting with word: ORATE
+
+Analysis: AnalysisReport {histogramOfAttempts = fromList [(2,73),(3,1093),(4,1064),(5,85)], minAttempts = 2, maxAttempts = 5, avgAttempts = 3.501511879049676}
+CPU time: 271.84s

@@ -18,7 +18,9 @@ runAnalysis s g wb = do
 
 main :: IO ()
 main = do
-  [g] <- getArgs
-  forM_ [minBound .. maxBound] $ \s -> do
-    putStrLn $ "\n\nRunning analysis for solver: " ++ show s ++ " starting with word: " ++ g
-    timeIt $ runAnalysis s g wordBank
+  gs <- getArgs
+  when (null gs) $ putStrLn "Please provide a list of starting words as arguments."
+  forM_ gs $ \g -> do
+    forM_ [minBound .. maxBound] $ \s -> do
+      putStrLn $ "\n\nRunning analysis for solver: " ++ show s ++ " starting with word: " ++ g
+      timeIt $ runAnalysis s g wordBank
