@@ -13,7 +13,8 @@ runAnalysis :: Solver -> Word -> WordBank -> IO ()
 runAnalysis s g wb = do
   let r = analyze s g wb
   putStrLn $ "\nAnalysis: " ++ show r
-  putStrLn $ "\nDifficult words: " ++ show (difficultWords 5 s g wb)
+  when (maxAttempts r > 5) $ do
+    putStrLn $ "\nDifficult words: " ++ show (difficultWords 5 s g wb)
 
 main :: IO ()
 main = do

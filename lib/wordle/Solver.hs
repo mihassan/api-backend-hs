@@ -5,13 +5,26 @@ import Data.List.Extra
 import Data.Map.Strict qualified as Map
 import Wordle.Matcher
 import Wordle.Types
+import Wordle.WordBank
 import Prelude hiding (Word)
 
 solve :: Solver -> WordBank -> Word
 solve _ [] = "SALET"
-solve LetterCountSolver wb = maximumOn (letterCount wb) wb
-solve MinimizeMaxPartitionSolver wb = maximumOn (minMaxPartitionSize wb) wb
-solve EvenPartitionSolver wb = maximumOn (partitionEntropy wb) wb
+solve _ [w] = w
+solve _ [w, _] = w
+solve LetterCountSolver wb = maximumOn rank wb
+  where
+    rank w = letterCount wb w
+solve MinimizeMaxPartitionSolver wb = maximumOn rank wordBank
+  where
+    rank w =
+      minMaxPartitionSize wb w
+        |> boostGuessIsPossible wb w
+solve EvenPartitionSolver wb = maximumOn rank wordBank
+  where
+    rank w =
+      partitionEntropy wb w
+        |> boostGuessIsPossible wb w
 
 letterCount :: WordBank -> Word -> Double
 letterCount wb w = nub w |> map f |> sum |> fromIntegral
@@ -31,3 +44,7 @@ partitionEntropy wb w =
   partitionWords w wb
     |> map (snd .> length)
     |> entropyFromFreq
+
+boostGuessIsPossible :: WordBank -> Word -> Double -> Double
+boostGuessIsPossible wb w | w `elem` wb = (+ 0.0000001)
+boostGuessIsPossible _ _ = id
