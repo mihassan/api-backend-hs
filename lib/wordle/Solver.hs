@@ -15,6 +15,9 @@ solve _ [w, _] = w
 solve LetterCountSolver wb = maximumOn rank wb
   where
     rank w = letterCount wb w
+solve LetterCountByPositionSolver wb = maximumOn rank wb
+  where
+    rank w = letterCountByPosition wb w
 solve MinimizeMaxPartitionSolver wb = maximumOn rank wordBank
   where
     rank w =
@@ -30,6 +33,11 @@ letterCount :: WordBank -> Word -> Double
 letterCount wb w = nub w |> map f |> sum |> fromIntegral
   where
     f l = concat wb |> histogram |> Map.findWithDefault 0 l
+
+letterCountByPosition :: WordBank -> Word -> Double
+letterCountByPosition wb w = nub w |> zip [0 :: Int ..] |> map f |> sum |> fromIntegral
+  where
+    f (i, l) = wb |> concatMap (zip [0 ..]) |> histogram |> Map.findWithDefault 0 (i, l)
 
 minMaxPartitionSize :: WordBank -> Word -> Double
 minMaxPartitionSize wb w =

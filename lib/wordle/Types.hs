@@ -54,6 +54,7 @@ type Attempts = [Attempt]
 -- | A list of available solvers.
 data Solver
   = LetterCountSolver
+  | LetterCountByPositionSolver
   | MinimizeMaxPartitionSolver
   | EvenPartitionSolver
   deriving (Show, Eq, Bounded, Enum, Generic)

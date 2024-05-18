@@ -16,6 +16,7 @@ document.addEventListener("alpine:init", () => {
     selectedSolver: "LetterCountSolver",
     solvers: [
       "LetterCountSolver",
+      "LetterCountByPositionSolver",
       "MinimizeMaxPartitionSolver",
       "EvenPartitionSolver",
     ],
