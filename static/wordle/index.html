@@ -40,7 +40,8 @@
     <footer>
       <button class="solve-button" @click="solve">Solve</button>
       <button class="clear-button" @click="initAttempts">Clear</button>
-      <select x-model="selectedSolver">
+      <label for="solver">Select solver strategy</label>
+      <select x-model="selectedSolver" id="solver">
         <template x-for="solver in solvers" :key="solver">
           <option :value="solver" x-text="solver"></option>
         </template>

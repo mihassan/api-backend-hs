@@ -37,7 +37,8 @@ document.addEventListener("alpine:init", () => {
     },
 
     getClass(rowIdx, colIdx) {
-      let feedback = this.attempts[rowIdx].feedback[colIdx];
+      let attempt = this.attempts[rowIdx];
+      let feedback = attempt ? attempt["feedback"][colIdx] : "Absent";
       return {
         cell: true,
         last: rowIdx == this.attempts.length - 1,

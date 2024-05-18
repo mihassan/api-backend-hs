@@ -9,11 +9,14 @@ h1 {
 
 .wordle-grid {
   display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  justify-content: center;
   gap: 5px;
 }
 
 .row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 5px;
 }
 
@@ -21,7 +24,7 @@ h1 {
   width: 60px;
   height: 60px;
   background-color: #fff;
-  border: 2px solid #d3d3d3;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,8 +36,20 @@ h1 {
   transition: transform 0.1s ease; /* Smooth transition for the click effect */
 }
 
-.cell.last:active {
-  transform: scale(0.95); /* Scales down the cell when clicked */
+.cell {
+  transition: transform 0.1s ease;
+}
+
+.cell.last:hover {
+  transform: scale(0.9); /* Scales down the cell when clicked */
+}
+
+.cell.last:hover + .cell {
+  transform: scale(0.95);
+}
+
+.cell.last:has(+ .cell.last:hover) {
+  transform: scale(0.95);
 }
 
 .cell.green {
@@ -53,4 +68,15 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+}
+
+footer button {
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+footer label {
+  justify-self: center;
+  align-self: center;
 }
