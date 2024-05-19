@@ -9,7 +9,7 @@ import Wordle.WordBank
 import Prelude hiding (Word)
 
 solve :: Solver -> WordBank -> Word
-solve _ [] = "SALET"
+solve _ [] = error "Empty word bank"
 solve _ [w] = w
 solve _ [w, _] = w
 solve LetterCountSolver wb = maximumOn rank wb
@@ -30,24 +30,24 @@ solve EvenPartitionSolver wb = maximumOn rank wordBank
         |> boostGuessIsPossible wb w
 
 letterCount :: WordBank -> Word -> Double
-letterCount wb w = 
-  nub w 
+letterCount wb w =
+  nub w
     |> map f
-    |> sum 
+    |> sum
     |> fromIntegral
-    where
-      h = concat wb |> histogram 
-      f x = Map.findWithDefault 0 x h
+  where
+    h = concat wb |> histogram
+    f x = Map.findWithDefault 0 x h
 
 letterCountByPosition :: WordBank -> Word -> Double
-letterCountByPosition wb w = 
+letterCountByPosition wb w =
   zip [0 :: Int ..] w
-    |> map f 
-    |> sum 
+    |> map f
+    |> sum
     |> fromIntegral
-    where
-      h = concat wb |> zip [0 :: Int ..] |> histogram 
-      f x = Map.findWithDefault 0 x h
+  where
+    h = concat wb |> zip [0 :: Int ..] |> histogram
+    f x = Map.findWithDefault 0 x h
 
 minMaxPartitionSize :: WordBank -> Word -> Double
 minMaxPartitionSize wb w =
