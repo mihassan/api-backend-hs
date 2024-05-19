@@ -19,7 +19,10 @@
 
   <body x-data="wordleData()">
     <header>
-      <h1>Wordle Solver</h1>
+      <h1>
+        Wordle Solver
+        <span x-bind:title="info">&#8505;</span>
+      </h1>
     </header>
 
     <main>

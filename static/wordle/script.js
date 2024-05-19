@@ -20,6 +20,12 @@ document.addEventListener("alpine:init", () => {
       "MinimizeMaxPartitionSolver",
       "EvenPartitionSolver",
     ],
+    info: `
+      1. Use the word shown below in the wordle game.
+      2. Click on the grid below to match the color of the cell with the feedback you get from the game.
+      3. Slelect the solver you want to use to solve the word.
+      4. Click on the Solve button to get the next word to guess.
+    `,
 
     initAttempts() {
       this.attempts = [
