@@ -30,14 +30,24 @@ solve EvenPartitionSolver wb = maximumOn rank wordBank
         |> boostGuessIsPossible wb w
 
 letterCount :: WordBank -> Word -> Double
-letterCount wb w = nub w |> map f |> sum |> fromIntegral
-  where
-    f l = concat wb |> histogram |> Map.findWithDefault 0 l
+letterCount wb w = 
+  nub w 
+    |> map f
+    |> sum 
+    |> fromIntegral
+    where
+      h = concat wb |> histogram 
+      f x = Map.findWithDefault 0 x h
 
 letterCountByPosition :: WordBank -> Word -> Double
-letterCountByPosition wb w = nub w |> zip [0 :: Int ..] |> map f |> sum |> fromIntegral
-  where
-    f (i, l) = wb |> concatMap (zip [0 ..]) |> histogram |> Map.findWithDefault 0 (i, l)
+letterCountByPosition wb w = 
+  zip [0 :: Int ..] w
+    |> map f 
+    |> sum 
+    |> fromIntegral
+    where
+      h = concat wb |> zip [0 :: Int ..] |> histogram 
+      f x = Map.findWithDefault 0 x h
 
 minMaxPartitionSize :: WordBank -> Word -> Double
 minMaxPartitionSize wb w =
