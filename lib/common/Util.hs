@@ -5,6 +5,7 @@ module Common.Util
     (<.),
     (|>),
     annotateBy,
+    count,
 
     -- * Hisogram related functions
     Histogram,
@@ -75,6 +76,19 @@ infixr 9 ...
 (...) :: (b -> c) -> (a1 -> a2 -> b) -> (a1 -> a2 -> c)
 (...) = (.) . (.)
 
+-- | Count the number of elements that satisfy a predicate.
+--
+-- >>> count odd [1..10]
+-- 5
+--
+-- >>> count even []
+-- 0
+--
+-- >>> count null ["a", "", "b"]
+-- 1
+count :: (a -> Bool) -> [a] -> Int
+count = length ... filter
+
 -- | Annotate a value with a function. This is useful in decorate-sort-undecorate pattern.
 --
 -- >>> annotateBy odd <$> [1..5]
@@ -116,10 +130,10 @@ histMax = Map.findMax .> fst
 -- >>> histAverage $ histogram [1, 2, 1, 3, 1, 2, 4]
 -- 2.0
 histAverage :: (Integral a) => Histogram a -> Double
-histAverage h = fromIntegral total / fromIntegral count
+histAverage h = fromIntegral total / fromIntegral len
   where
     total = Map.assocs h |> map (\(k, v) -> v * fromIntegral k) |> sum
-    count = Map.elems h |> sum
+    len = Map.elems h |> sum
 
 -- | A distribution is a map from a value to its probability.
 -- The sum of all probabilities should be 1 if it is actually a probability distribution.

@@ -18,6 +18,9 @@ solve LetterCountSolver wb = maximumOn rank wb
 solve LetterCountByPositionSolver wb = maximumOn rank wb
   where
     rank w = letterCountByPosition wb w
+solve LetterEntropySolver wb = maximumOn rank wb
+  where
+    rank w = letterEntropy wb w
 solve MinimizeMaxPartitionSolver wb = maximumOn rank wordBank
   where
     rank w =
@@ -47,6 +50,16 @@ letterCountByPosition wb w =
     |> fromIntegral
   where
     h = concat wb |> zip [0 :: Int ..] |> histogram
+    f x = Map.findWithDefault 0 x h
+
+letterEntropy :: WordBank -> Word -> Double
+letterEntropy wb w =
+  nub w
+    |> map f
+    |> sum
+  where
+    h = map g ['A' .. 'Z'] |> map entropyFromFreq |> zip ['A' .. 'Z'] |> Map.fromList
+    g x = map (elem x) wb |> histogram |> Map.elems
     f x = Map.findWithDefault 0 x h
 
 minMaxPartitionSize :: WordBank -> Word -> Double
