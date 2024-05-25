@@ -13,13 +13,15 @@ const COLORS = {
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
-    selectedSolver: "LetterCountSolver",
+    selectedSolver: "LetterCountHard",
     solvers: [
-      "LetterCountSolver",
-      "LetterCountByPositionSolver",
-      "LetterEntropySolver",
-      "MinimizeMaxPartitionSolver",
-      "EvenPartitionSolver",
+      "LetterCountHard",
+      "LetterCountByPositionHard",
+      "LetterEntropyHard",
+      "MinMaxPartitionHard",
+      "EvenPartitionHard",
+      "MinMaxPartitionSlow",
+      "EvenPartitionSlow",
     ],
     info: `
       1. Use the word shown below in the wordle game.

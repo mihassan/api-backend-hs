@@ -12,21 +12,27 @@ solve :: Solver -> WordBank -> Word
 solve _ [] = error "Empty word bank"
 solve _ [w] = w
 solve _ [w, _] = w
-solve LetterCountSolver wb = maximumOn rank wb
+solve LetterCountHard wb = maximumOn rank wb
   where
     rank w = letterCount wb w
-solve LetterCountByPositionSolver wb = maximumOn rank wb
+solve LetterCountByPositionHard wb = maximumOn rank wb
   where
     rank w = letterCountByPosition wb w
-solve LetterEntropySolver wb = maximumOn rank wb
+solve LetterEntropyHard wb = maximumOn rank wb
   where
     rank w = letterEntropy wb w
-solve MinimizeMaxPartitionSolver wb = maximumOn rank wordBank
+solve MinMaxPartitionHard wb = maximumOn rank wb
+  where
+    rank w = minMaxPartitionSize wb w
+solve EvenPartitionHard wb = maximumOn rank wb
+  where
+    rank w = partitionEntropy wb w
+solve MinMaxPartitionSlow wb = maximumOn rank wordBank
   where
     rank w =
       minMaxPartitionSize wb w
         |> boostGuessIsPossible wb w
-solve EvenPartitionSolver wb = maximumOn rank wordBank
+solve EvenPartitionSlow wb = maximumOn rank wordBank
   where
     rank w =
       partitionEntropy wb w
