@@ -23,12 +23,7 @@ document.addEventListener("alpine:init", () => {
       "MinMaxPartitionSlow",
       "EvenPartitionSlow",
     ],
-    info: `
-      1. Use the word shown below in the wordle game.
-      2. Click on the grid below to match the color of the cell with the feedback you get from the game.
-      3. Slelect the solver you want to use to solve the word.
-      4. Click on the Solve button to get the next word to guess.
-    `,
+    infoShown: false,
 
     initAttempts() {
       this.attempts = [
@@ -74,6 +69,14 @@ document.addEventListener("alpine:init", () => {
       })
         .then((response) => response.json())
         .then((data) => this.populateGrid(data));
+    },
+
+    showInfo(e) {
+      this.infoShown = true;
+    },
+
+    hideInfo() {
+      this.infoShown = false;
     },
 
     init() {

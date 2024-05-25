@@ -80,3 +80,8 @@ footer label {
   justify-self: center;
   align-self: center;
 }
+
+.info-button {
+  font-size: inherit;
+  border-radius: 25px;
+}

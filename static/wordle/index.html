@@ -21,7 +21,7 @@
     <header>
       <h1>
         Wordle Solver
-        <span x-bind:title="info">&#8505;</span>
+        <button class="info-button" @click="showInfo">❔</button>
       </h1>
     </header>
 
@@ -40,6 +40,7 @@
         </template>
       </div>
     </main>
+
     <footer>
       <button class="solve-button" @click="solve">Solve</button>
       <button class="clear-button" @click="initAttempts">Clear</button>
@@ -50,5 +51,43 @@
         </template>
       </select>
     </footer>
+
+    <dialog x-bind:open="infoShown">
+      <article>
+        <header>
+          <button aria-label="Close" rel="prev" @click="hideInfo"></button>
+          <h2>How to use the solver</h2>
+        </header>
+        <p>
+          <ol>
+            <li>Enter the last word shown in the grid in the real Wordle game.</li>
+            <li>Click on the grid below to match the color of the cell with the feedback you get from the game.</li>
+            <li>Select the solver you want to use to solve the word.</li>
+            <li>Click on the Solve button to get the next word to guess.</li>
+          </ol>
+        </p>
+        <h3>Solver strategies</h3>
+        <p>
+          In hard mode any revealed hints must be used in subsequent guesses.
+          The hard mode solvers are faster, but may not always find the word in the minimum number of guesses.
+          <dl>
+            <dt>LetterCountHard</dt>
+            <dd>Pick word consisting of most frequent letters.</dd>
+            <dt>LetterCountByPositionHard</dt>
+            <dd>Pick word consisting of most frequent letters at each position.</dd>
+            <dt>LetterEntropyHard</dt>
+            <dd>Pick word with most letter entropy.</dd>
+            <dt>MinMaxPartitionHard</dt>
+            <dd>Pick word that minimizes maximum partition size.</dd>
+            <dt>EvenPartitionHard</dt>
+            <dd>Pick word that minimizes partition size variance.</dd>
+            <dt>MinMaxPartitionSlow</dt>
+            <dd>Pick word that minimizes maximum partition size.</dd>
+            <dt>EvenPartitionSlow</dt>
+            <dd>Pick word that minimizes partition size variance.</dd>
+          </dl>
+        </p>
+      </article>
+    </dialog>
   </body>
 </html>
