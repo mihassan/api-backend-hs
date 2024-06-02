@@ -39,18 +39,29 @@
           </div>
         </template>
       </div>
-    </main>
 
-    <footer>
-      <button class="solve-button" @click="solve">Solve</button>
-      <button class="clear-button" @click="initAttempts">Clear</button>
-      <label for="solver">Select solver strategy</label>
-      <select x-model="selectedSolver" id="solver">
-        <template x-for="solver in solvers" :key="solver">
-          <option :value="solver" x-text="solver"></option>
-        </template>
-      </select>
-    </footer>
+      <progress x-show="loading"></progress>
+
+      <div class="inputs">
+        <button x-bind:aria-busy="loading" class="solve-button" @click="solve">Solve</button>
+        <button class="clear-button" @click="initAttempts">Clear</button>
+        <label for="solver">Select solver strategy</label>
+        <select x-model="selectedSolver" id="solver">
+          <template x-for="solver in solvers" :key="solver">
+            <option :value="solver" x-text="solver"></option>
+          </template>
+        </select>
+      </div>
+
+      <details>
+        <summary>Remaining words:</summary>
+        <div class="words">
+          <template x-for="word in words">
+            <div x-text="word"></div>
+          </template>
+        </div>
+      </details>
+    </main>
 
     <dialog x-bind:open="infoShown">
       <article>

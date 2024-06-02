@@ -13,6 +13,8 @@ const COLORS = {
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
+    words: [],
+    loading: false,
     selectedSolver: "LetterCountHard",
     solvers: [
       "LetterCountHard",
@@ -26,6 +28,8 @@ document.addEventListener("alpine:init", () => {
     infoShown: false,
 
     initAttempts() {
+      if (this.loading) return;
+      this.words = [];
       this.attempts = [
         {
           word: "SALET",
@@ -35,6 +39,7 @@ document.addEventListener("alpine:init", () => {
     },
 
     populateGrid(data) {
+      this.words = data.words;
       this.attempts.push({
         word: data.word,
         feedback: Array(5).fill("Absent"),
@@ -46,12 +51,13 @@ document.addEventListener("alpine:init", () => {
       let feedback = attempt ? attempt["feedback"][colIdx] : "Absent";
       return {
         cell: true,
-        last: rowIdx == this.attempts.length - 1,
+        last: !this.loading && rowIdx == this.attempts.length - 1,
         [COLORS[feedback]]: true,
       };
     },
 
     toggleCell(rowIdx, colIdx) {
+      if (this.loading) return;
       if (rowIdx != this.attempts.length - 1) return;
       let lastAttempt = this.attempts[rowIdx];
       let feedback = lastAttempt["feedback"];
@@ -59,6 +65,8 @@ document.addEventListener("alpine:init", () => {
     },
 
     solve() {
+      if (this.loading) return;
+      this.loading = true;
       fetch("../api/wordle", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -68,7 +76,10 @@ document.addEventListener("alpine:init", () => {
         }),
       })
         .then((response) => response.json())
-        .then((data) => this.populateGrid(data));
+        .then((data) => {
+          this.populateGrid(data);
+          this.loading = false;
+        });
     },
 
     showInfo(e) {

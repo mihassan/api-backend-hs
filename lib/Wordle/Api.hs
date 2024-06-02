@@ -20,14 +20,14 @@ data Request = Request
 
 instance FromJSON Request
 
-data Response = Response {word :: Word} deriving (Show, Eq, Generic)
+data Response = Response {word :: Word, words :: WordBank} deriving (Show, Eq, Generic)
 
 instance ToJSON Response
 
 rpc :: Rpc
 rpc = Rpc "wordle" $ \Request {..} ->
-  let wb = filterWords wordBank attempts
-      word = solve solver wb
+  let words = filterWords wordBank attempts
+      word = solve solver words
    in Response {..}
 
 service :: Service

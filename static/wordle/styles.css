@@ -28,7 +28,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2em;
+  font-size: 2rem;
   font-weight: bold;
   color: #333;
   user-select: none;
@@ -44,14 +44,6 @@ h1 {
   transform: scale(0.9); /* Scales down the cell when clicked */
 }
 
-.cell.last:hover + .cell {
-  transform: scale(0.95);
-}
-
-.cell.last:has(+ .cell.last:hover) {
-  transform: scale(0.95);
-}
-
 .cell.green {
   background-color: #6ca965;
 }
@@ -64,19 +56,24 @@ h1 {
   background-color: #787c7f;
 }
 
-footer {
+progress {
+  margin-top: 20px;
+}
+
+.inputs {
   display: grid;
+  margin-top: 20px;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-footer button {
+.inputs button {
   padding: 10px;
   border-radius: 25px;
   cursor: pointer;
 }
 
-footer label {
+.inputs label {
   justify-self: center;
   align-self: center;
 }
@@ -84,4 +81,11 @@ footer label {
 .info-button {
   font-size: inherit;
   border-radius: 25px;
+}
+
+.words {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: center;
+  gap: 10px;
 }
