@@ -51,7 +51,7 @@ document.addEventListener("alpine:init", () => {
       let feedback = attempt ? attempt["feedback"][colIdx] : "Absent";
       return {
         cell: true,
-        last: !this.loading && rowIdx == this.attempts.length - 1,
+        clickable: !this.loading && rowIdx == this.attempts.length - 1,
         [COLORS[feedback]]: true,
       };
     },
@@ -62,6 +62,14 @@ document.addEventListener("alpine:init", () => {
       let lastAttempt = this.attempts[rowIdx];
       let feedback = lastAttempt["feedback"];
       feedback[colIdx] = NEXT_ATTEMPT[feedback[colIdx]];
+    },
+
+    canRemoveAttempt(rowIdx) {
+      return !this.loading && rowIdx > 0 && rowIdx == this.attempts.length - 1;
+    },
+
+    removeAttempt(rowIdx) {
+      if (this.canRemoveAttempt(rowIdx)) this.attempts.pop();
     },
 
     solve() {
@@ -78,6 +86,10 @@ document.addEventListener("alpine:init", () => {
         .then((response) => response.json())
         .then((data) => {
           this.populateGrid(data);
+          this.loading = false;
+        })
+        .catch((error) => {
+          console.error("Error solving:", error);
           this.loading = false;
         });
     },

@@ -16,7 +16,7 @@ h1 {
 
 .row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 5px;
 }
 
@@ -32,7 +32,6 @@ h1 {
   font-weight: bold;
   color: #333;
   user-select: none;
-  cursor: pointer;
   transition: transform 0.1s ease; /* Smooth transition for the click effect */
 }
 
@@ -40,8 +39,16 @@ h1 {
   transition: transform 0.1s ease;
 }
 
-.cell.last:hover {
+.cell.clickable {
+  cursor: pointer;
+}
+
+.cell.clickable:hover {
   transform: scale(0.9); /* Scales down the cell when clicked */
+}
+
+.cell:not(.clickable) {
+  filter: saturate(0.5); /* Gray out the cell */
 }
 
 .cell.green {
@@ -54,6 +61,13 @@ h1 {
 
 .cell.gray {
   background-color: #787c7f;
+}
+
+.remove-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-self: center;
+  justify-self: center;
 }
 
 progress {
@@ -76,11 +90,6 @@ progress {
 .inputs label {
   justify-self: center;
   align-self: center;
-}
-
-.info-button {
-  font-size: inherit;
-  border-radius: 25px;
 }
 
 .words {

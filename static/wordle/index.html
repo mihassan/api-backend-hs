@@ -12,6 +12,7 @@
       defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
+    <script src="https://kit.fontawesome.com/2f62df163c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js"></script>
     <title>Wordle Solver</title>
@@ -21,7 +22,7 @@
     <header>
       <h1>
         Wordle Solver
-        <button class="info-button" @click="showInfo">❔</button>
+        <i class="fa-solid fa-circle-info info-icon" @click="showInfo"></i>
       </h1>
     </header>
 
@@ -36,6 +37,7 @@
                 x-text="attempt['word'][colIdx]"
               ></div>
             </template>
+            <i class="fa-solid fa-trash-alt remove-icon" x-show="canRemoveAttempt(rowIdx)" @click="removeAttempt(rowIdx)"></i>
           </div>
         </template>
       </div>
