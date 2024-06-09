@@ -37,6 +37,7 @@
                 x-text="attempt['word'][colIdx]"
               ></div>
             </template>
+            <i class="fa-solid fa-pencil edit-icon" x-show="canEditAttempt(rowIdx)" @click="editAttempt(rowIdx)"></i>
             <i class="fa-solid fa-trash-alt remove-icon" x-show="canRemoveAttempt(rowIdx)" @click="removeAttempt(rowIdx)"></i>
           </div>
         </template>

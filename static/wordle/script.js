@@ -10,6 +10,10 @@ const COLORS = {
   Absent: "gray",
 };
 
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}
+
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
@@ -70,6 +74,22 @@ document.addEventListener("alpine:init", () => {
 
     removeAttempt(rowIdx) {
       if (this.canRemoveAttempt(rowIdx)) this.attempts.pop();
+    },
+
+    canEditAttempt(rowIdx) {
+      return !this.loading && rowIdx == this.attempts.length - 1;
+    },
+
+    editAttempt(rowIdx) {
+      if (!this.canEditAttempt(rowIdx)) return;
+
+      let attempt = this.attempts[rowIdx];
+      let newWord = prompt("Enter a new word:", attempt.word);
+      if (newWord.length != 5 || !newWord.split("").every(isLetter)) {
+        alert("Invalid word. Please enter a 5-letter word.");
+      } else {
+        attempt.word = newWord.toUpperCase();
+      }
     },
 
     solve() {
