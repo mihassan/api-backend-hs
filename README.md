@@ -5,7 +5,6 @@ The purpose of this project is to host some Haskell code on Google cloud run and
 
 # APIs
 
-1. `GET /api/_healthz` - Health check
 1. `GET /api/hello` - Say hello
 1. `GET /api/wordle` - Wordle game solver
 
@@ -15,6 +14,6 @@ The purpose of this project is to host some Haskell code on Google cloud run and
 
 # Tech stack
 
-1. Scotty (Haskell web framework)
+1. Servant (Haskell web framework)
 1. Alpine.js (Frontend framework)
 1. Google Cloud Run (Hosting)

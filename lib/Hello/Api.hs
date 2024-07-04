@@ -1,24 +1,21 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
-module Hello.Api (service) where
+module Hello.Api (HelloRequest, HelloResponse, helloHandler) where
 
-import Common.Service
 import Data.Aeson
 import Data.Text
 import GHC.Generics
+import Servant
 import Prelude hiding (id)
 
-data Request = Request {id :: Int} deriving (Show, Eq, Generic)
+data HelloRequest = HelloRequest {id :: Int} deriving (Show, Eq, Generic)
 
-instance FromJSON Request
+instance FromJSON HelloRequest
 
-data Response = Response {message :: Text} deriving (Show, Eq, Generic)
+data HelloResponse = HelloResponse {message :: Text} deriving (Show, Eq, Generic)
 
-instance ToJSON Response
+instance ToJSON HelloResponse
 
-rpc :: Rpc
-rpc = Rpc "hello" $ \Request {..} -> Response {message = "Hello, World! " <> (pack . show $ id)}
-
-service :: Service
-service = Service [rpc]
+helloHandler :: HelloRequest -> Handler HelloResponse
+helloHandler HelloRequest {..} = return $ HelloResponse {message = "Hello, World! " <> (pack . show $ id)}

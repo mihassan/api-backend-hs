@@ -1,34 +1,31 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
-module Wordle.Api (service) where
+module Wordle.Api (WordleRequest, WordleResponse, wordleHandler) where
 
-import Common.Service
 import Data.Aeson
 import GHC.Generics
+import Servant
 import Wordle.Matcher
 import Wordle.Solver
 import Wordle.Types
 import Wordle.WordBank
-import Prelude hiding (Word)
+import Prelude hiding (Word, words)
 
-data Request = Request
+data WordleRequest = WordleRequest
   { solver :: Solver,
     attempts :: Attempts
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON Request
+instance FromJSON WordleRequest
 
-data Response = Response {word :: Word, words :: WordBank} deriving (Show, Eq, Generic)
+data WordleResponse = WordleResponse {word :: Word, words :: WordBank} deriving (Show, Eq, Generic)
 
-instance ToJSON Response
+instance ToJSON WordleResponse
 
-rpc :: Rpc
-rpc = Rpc "wordle" $ \Request {..} ->
+wordleHandler :: WordleRequest -> Handler WordleResponse
+wordleHandler WordleRequest {..} = do
   let words = filterWords wordBank attempts
       word = solve solver words
-   in Response {..}
-
-service :: Service
-service = Service [rpc]
+  pure $ WordleResponse {..}

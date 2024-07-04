@@ -62,7 +62,6 @@ library
 
     -- Modules exported by the library.
     exposed-modules:
-        Api,
         Hello.Api,
         Wordle.Analyzer,
         Wordle.Api,
@@ -70,7 +69,6 @@ library
         Wordle.Solver,
         Wordle.Types,
         Wordle.WordBank,
-        Common.Service,
         Common.Util
 
     -- Other library packages from which modules are imported.
@@ -78,10 +76,9 @@ library
         base ^>=4.19.1.0,
         aeson,
         containers,
-        http-types,
-        scotty,
-        text,
-        extra
+        extra,
+        servant-server,
+        text
 
     -- Directories containing source files.
     hs-source-dirs:   lib
@@ -96,9 +93,8 @@ executable ApiBackend
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.19.1.0,
-        scotty,
-        wai-extra,
-        wai-middleware-static,
+        servant-server,
+        warp,
         ApiBackend
 
     -- Directories containing source files.
