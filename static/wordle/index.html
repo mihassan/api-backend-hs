@@ -1,107 +1,101 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css"
-    />
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-    <script src="https://kit.fontawesome.com/2f62df163c.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="script.js"></script>
-    <title>Wordle Solver</title>
-  </head>
 
-  <body x-data="wordleData()">
-    <header>
-      <h1>
-        Wordle Solver
-        <i class="fa-solid fa-circle-info info-icon" @click="showInfo"></i>
-      </h1>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://kit.fontawesome.com/2f62df163c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js"></script>
+  <title>Wordle Solver</title>
+</head>
 
-    <main>
-      <div class="wordle-grid">
-        <template x-for="(attempt, rowIdx) in attempts">
-          <div class="row">
-            <template x-for="(feedback, colIdx) in attempt['feedback']">
-              <div
-                @click="toggleCell(rowIdx, colIdx)"
-                :class="getClass(rowIdx, colIdx)"
-                x-text="attempt['word'][colIdx]"
-              ></div>
-            </template>
-            <i class="fa-solid fa-pencil edit-icon" x-show="canEditAttempt(rowIdx)" @click="editAttempt(rowIdx)"></i>
-            <i class="fa-solid fa-trash-alt remove-icon" x-show="canRemoveAttempt(rowIdx)" @click="removeAttempt(rowIdx)"></i>
-          </div>
+<body x-data="wordleData()">
+  <header>
+    <h1>
+      Wordle Solver
+      <i class="fa-solid fa-circle-info info-icon" @click="showInfo"></i>
+    </h1>
+  </header>
+
+  <main>
+    <div class="wordle-grid">
+      <template x-for="(attempt, rowIdx) in attempts">
+        <div class="row">
+          <template x-for="(feedback, colIdx) in attempt['feedback']">
+            <div @click="toggleCell(rowIdx, colIdx)" :class="getClass(rowIdx, colIdx)" x-text="attempt['word'][colIdx]">
+            </div>
+          </template>
+          <i class="fa-solid fa-pencil edit-icon" x-show="canEditAttempt(rowIdx)" @click="editAttempt(rowIdx)"></i>
+          <i class="fa-solid fa-trash-alt remove-icon" x-show="canRemoveAttempt(rowIdx)"
+            @click="removeAttempt(rowIdx)"></i>
+        </div>
+      </template>
+    </div>
+
+    <progress x-show="loading"></progress>
+
+    <div class="inputs">
+      <button x-bind:aria-busy="loading" class="solve-button" @click="solve">Solve</button>
+      <button class="clear-button" @click="initAttempts">Clear</button>
+      <label for="solver">Select solver strategy</label>
+      <select x-model="selectedSolver" id="solver">
+        <template x-for="solver in solvers" :key="solver">
+          <option :value="solver" x-text="solver"></option>
+        </template>
+      </select>
+    </div>
+
+    <details>
+      <summary>Remaining words:</summary>
+      <div class="words">
+        <template x-for="word in words[words.length - 1]">
+          <div x-text="word"></div>
         </template>
       </div>
+    </details>
+  </main>
 
-      <progress x-show="loading"></progress>
+  <dialog x-bind:open="infoShown">
+    <article>
+      <header>
+        <button aria-label="Close" rel="prev" @click="hideInfo"></button>
+        <h2>How to use the solver</h2>
+      </header>
+      <p>
+      <ol>
+        <li>Enter the last word shown in the grid in the real Wordle game.</li>
+        <li>Click on the grid below to match the color of the cell with the feedback you get from the game.</li>
+        <li>Select the solver you want to use to solve the word.</li>
+        <li>Click on the Solve button to get the next word to guess.</li>
+      </ol>
+      </p>
+      <h3>Solver strategies</h3>
+      <p>
+        In hard mode any revealed hints must be used in subsequent guesses.
+        The hard mode solvers are faster, but may not always find the word in the minimum number of guesses.
+      <dl>
+        <dt>LetterCountHard</dt>
+        <dd>Pick word consisting of most frequent letters.</dd>
+        <dt>LetterCountByPositionHard</dt>
+        <dd>Pick word consisting of most frequent letters at each position.</dd>
+        <dt>LetterEntropyHard</dt>
+        <dd>Pick word with most letter entropy.</dd>
+        <dt>MinMaxPartitionHard</dt>
+        <dd>Pick word that minimizes maximum partition size.</dd>
+        <dt>EvenPartitionHard</dt>
+        <dd>Pick word that minimizes partition size variance.</dd>
+        <dt>MinMaxPartitionSlow</dt>
+        <dd>Pick word that minimizes maximum partition size.</dd>
+        <dt>EvenPartitionSlow</dt>
+        <dd>Pick word that minimizes partition size variance.</dd>
+      </dl>
+      </p>
+    </article>
+  </dialog>
+</body>
 
-      <div class="inputs">
-        <button x-bind:aria-busy="loading" class="solve-button" @click="solve">Solve</button>
-        <button class="clear-button" @click="initAttempts">Clear</button>
-        <label for="solver">Select solver strategy</label>
-        <select x-model="selectedSolver" id="solver">
-          <template x-for="solver in solvers" :key="solver">
-            <option :value="solver" x-text="solver"></option>
-          </template>
-        </select>
-      </div>
-
-      <details>
-        <summary>Remaining words:</summary>
-        <div class="words">
-          <template x-for="word in words">
-            <div x-text="word"></div>
-          </template>
-        </div>
-      </details>
-    </main>
-
-    <dialog x-bind:open="infoShown">
-      <article>
-        <header>
-          <button aria-label="Close" rel="prev" @click="hideInfo"></button>
-          <h2>How to use the solver</h2>
-        </header>
-        <p>
-          <ol>
-            <li>Enter the last word shown in the grid in the real Wordle game.</li>
-            <li>Click on the grid below to match the color of the cell with the feedback you get from the game.</li>
-            <li>Select the solver you want to use to solve the word.</li>
-            <li>Click on the Solve button to get the next word to guess.</li>
-          </ol>
-        </p>
-        <h3>Solver strategies</h3>
-        <p>
-          In hard mode any revealed hints must be used in subsequent guesses.
-          The hard mode solvers are faster, but may not always find the word in the minimum number of guesses.
-          <dl>
-            <dt>LetterCountHard</dt>
-            <dd>Pick word consisting of most frequent letters.</dd>
-            <dt>LetterCountByPositionHard</dt>
-            <dd>Pick word consisting of most frequent letters at each position.</dd>
-            <dt>LetterEntropyHard</dt>
-            <dd>Pick word with most letter entropy.</dd>
-            <dt>MinMaxPartitionHard</dt>
-            <dd>Pick word that minimizes maximum partition size.</dd>
-            <dt>EvenPartitionHard</dt>
-            <dd>Pick word that minimizes partition size variance.</dd>
-            <dt>MinMaxPartitionSlow</dt>
-            <dd>Pick word that minimizes maximum partition size.</dd>
-            <dt>EvenPartitionSlow</dt>
-            <dd>Pick word that minimizes partition size variance.</dd>
-          </dl>
-        </p>
-      </article>
-    </dialog>
-  </body>
 </html>

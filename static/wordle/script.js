@@ -17,7 +17,7 @@ function isLetter(str) {
 document.addEventListener("alpine:init", () => {
   Alpine.data("wordleData", () => ({
     attempts: [],
-    words: [],
+    words: [[]],
     loading: false,
     selectedSolver: "LetterCountHard",
     solvers: [
@@ -33,7 +33,7 @@ document.addEventListener("alpine:init", () => {
 
     initAttempts() {
       if (this.loading) return;
-      this.words = [];
+      this.words = [[]];
       this.attempts = [
         {
           word: "SALET",
@@ -43,7 +43,7 @@ document.addEventListener("alpine:init", () => {
     },
 
     populateGrid(data) {
-      this.words = data.words;
+      this.words.push(data.words);
       this.attempts.push({
         word: data.word,
         feedback: Array(5).fill("Absent"),
@@ -73,7 +73,10 @@ document.addEventListener("alpine:init", () => {
     },
 
     removeAttempt(rowIdx) {
-      if (this.canRemoveAttempt(rowIdx)) this.attempts.pop();
+      if (this.canRemoveAttempt(rowIdx)) {
+        this.attempts.pop();
+        this.words.pop();
+      }
     },
 
     canEditAttempt(rowIdx) {
