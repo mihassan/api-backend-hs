@@ -95,6 +95,12 @@ document.addEventListener("alpine:init", () => {
       }
     },
 
+    setLastAttempt(e) {
+      let attempt = this.attempts[this.attempts.length - 1];
+      let newWord = e.target.textContent;
+      attempt.word = newWord;
+    },
+
     solve() {
       if (this.loading) return;
       this.loading = true;

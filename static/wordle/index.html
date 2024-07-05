@@ -53,7 +53,7 @@
       <summary>Remaining words:</summary>
       <div class="words">
         <template x-for="word in words[words.length - 1]">
-          <div x-text="word"></div>
+          <div role='button' x-text="word" @click="setLastAttempt"></div>
         </template>
       </div>
     </details>
