@@ -101,9 +101,12 @@ progress {
 
 .words {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(calc(5ch + 20px), 1fr));
   justify-items: center;
   gap: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
 .words div {
