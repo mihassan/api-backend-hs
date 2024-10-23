@@ -46,6 +46,7 @@ build-type:         Simple
 
 -- Extra doc files to be distributed with the package, such as a CHANGELOG or a README.
 -- extra-doc-files:    README.md
+data-dir:           data
 
 -- Extra source files to be distributed with the package, such as examples, or a tutorial module.
 -- extra-source-files:
@@ -63,13 +64,20 @@ library
     -- Modules exported by the library.
     exposed-modules:
         Hello.Api,
+        Scrabble.Api,
+        Scrabble.Dictionary,
+        Scrabble.Grid,
+        Scrabble.Point,
+        Scrabble.Solver,
+        Scrabble.Util,
         Wordle.Analyzer,
         Wordle.Api,
         Wordle.Matcher,
         Wordle.Solver,
         Wordle.Types,
         Wordle.WordBank,
-        Common.Util
+        Common.Util,
+        Paths_ApiBackend
 
     -- Other library packages from which modules are imported.
     build-depends:

@@ -1,4 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
 module Wordle.Api (WordleRequest, WordleResponse, wordleHandler) where

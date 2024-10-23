@@ -5,8 +5,9 @@ The purpose of this project is to host some Haskell code on Google cloud run and
 
 # APIs
 
-1. `GET /api/hello` - Say hello
-1. `GET /api/wordle` - Wordle game solver
+1. `POST /api/hello` - Say hello
+1. `POST /api/wordle` - Wordle game solver
+1. `POST /api/scrabble` - Scrabble solver
 
 # Frontend
 

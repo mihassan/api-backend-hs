@@ -9,11 +9,11 @@ import GHC.Generics
 import Servant
 import Prelude hiding (id)
 
-data HelloRequest = HelloRequest {id :: Int} deriving (Show, Eq, Generic)
+newtype HelloRequest = HelloRequest {id :: Int} deriving (Show, Eq, Generic)
 
 instance FromJSON HelloRequest
 
-data HelloResponse = HelloResponse {message :: Text} deriving (Show, Eq, Generic)
+newtype HelloResponse = HelloResponse {message :: Text} deriving (Show, Eq, Generic)
 
 instance ToJSON HelloResponse
 
