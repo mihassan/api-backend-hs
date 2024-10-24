@@ -25,7 +25,7 @@ instance ToJSON ScrabbleResponse
 
 handlerIO :: ScrabbleRequest -> IO ScrabbleResponse
 handlerIO ScrabbleRequest {..} = do
-  dict <- load dictionary
+  let dict = load dictionary
   let letters' = filter isAlpha $ toUpper <$> letters
   let grid = case solve dict letters' of
         Just chain -> render $ chainToGrid chain

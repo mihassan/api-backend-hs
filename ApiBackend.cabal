@@ -46,7 +46,6 @@ build-type:         Simple
 
 -- Extra doc files to be distributed with the package, such as a CHANGELOG or a README.
 -- extra-doc-files:    README.md
-data-dir:           data
 
 -- Extra source files to be distributed with the package, such as examples, or a tutorial module.
 -- extra-source-files:
@@ -76,15 +75,16 @@ library
         Wordle.Solver,
         Wordle.Types,
         Wordle.WordBank,
-        Common.Util,
-        Paths_ApiBackend
+        Common.Util
 
     -- Other library packages from which modules are imported.
     build-depends:
         base ^>=4.19.1.0,
         aeson,
+        bytestring,
         containers,
         extra,
+        file-embed,
         servant-server,
         text
 
@@ -123,21 +123,3 @@ executable WordleAnalyzer
 
     -- Directories containing source files.
     hs-source-dirs:   tools/wordle-analyzer
-
-test-suite ApiBackend-test
-    -- Import common settings.
-    import:           common
-
-    -- The interface type and version of the test suite.
-    type:             exitcode-stdio-1.0
-
-    -- Directories containing source files.
-    hs-source-dirs:   test
-
-    -- The entrypoint to the test suite.
-    main-is:          Main.hs
-
-    -- Test dependencies.
-    build-depends:
-        base ^>=4.19.1.0,
-        ApiBackend

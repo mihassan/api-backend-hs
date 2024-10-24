@@ -1,3 +1,5 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Scrabble.Dictionary
   ( Dictionary,
     Size (..),
@@ -7,13 +9,17 @@ module Scrabble.Dictionary
   )
 where
 
-import Control.Monad
 import Data.Aeson
+import Data.ByteString.Char8 qualified as C
+import Data.FileEmbed
 import Data.List.Extra
+import Data.Maybe
 import GHC.Generics
-import Paths_ApiBackend
 import Scrabble.Point
 import Scrabble.Util
+
+dictionaryFiles :: [(FilePath, C.ByteString)]
+dictionaryFiles = $(embedDir "data/dictionary")
 
 type Dictionary = [String]
 
@@ -21,14 +27,11 @@ data Size = Tiny | Small | Medium | Large | Huge | Full deriving (Eq, Show, Read
 
 instance FromJSON Size
 
-load :: Size -> IO Dictionary
-load = toPath >=> load'
-
-load' :: FilePath -> IO Dictionary
-load' = readFile >=> pure . lines
-
-toPath :: Size -> IO FilePath
-toPath size = getDataFileName $ "dictionary/" <> show size <> ".txt"
+load :: Size -> Dictionary
+load size =
+  let fp = show size <> ".txt"
+      content = C.unpack . fromJust $ lookup fp dictionaryFiles
+   in lines content
 
 prune :: String -> Dictionary -> Dictionary
 prune s = filter (flip isSubMapOf (histogram s) . histogram)
