@@ -48,7 +48,7 @@ build-type:         Simple
 -- extra-doc-files:    README.md
 
 -- Extra source files to be distributed with the package, such as examples, or a tutorial module.
--- extra-source-files:
+extra-source-files: data/Dictionary/*.txt
 
 common common
     ghc-options: -Wall -O2
