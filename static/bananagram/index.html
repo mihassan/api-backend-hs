@@ -21,14 +21,16 @@
   </header>
 
   <main>
-    <textarea x-model="letters" placeholder="Enter your letters..."></textarea>
-    <select x-model="dictionary">
+    <input type="text" x-model="letters" @keyup.enter="solve" placeholder="Enter your letters...">
+    <label for="dictionary">Select dictionary size</label>
+    <select x-model="dictionary" id="dictionary">
       <template x-for="size in sizes" :key="size">
         <option :value="size" x-text="size"></option>
       </template>
     </select>
     <button x-bind:aria-busy="loading" class="solve-button" @click="solve">Solve</button>
     <pre><code x-text="grid" x-show="grid"></code></pre>
+    <div x-show="errorMessage" x-text="errorMessage" class="error-message"></div>
   </main>
 </body>
 

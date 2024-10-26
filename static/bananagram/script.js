@@ -1,6 +1,7 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("data", () => ({
     letters: "",
+    errorMessage: "",
     grid: "",
     dictionary: "Tiny",
     sizes: ["Tiny", "Small", "Medium", "Large", "Huge", "Full"],
@@ -8,7 +9,17 @@ document.addEventListener("alpine:init", () => {
 
     solve() {
       if (this.loading) return;
+
+      this.grid = "";
+      this.errorMessage = "";
+      this.letters = this.letters.toUpperCase().replace(/[^A-Z]/g, "");
+      if (this.letters.length < 2) {
+        this.errorMessage = "Please enter at least two letters.";
+        return;
+      }
+
       this.loading = true;
+
       fetch("../api/bananagram", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -19,11 +30,15 @@ document.addEventListener("alpine:init", () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          this.grid = data.grid.join("\n");
+          if (data.grid.length > 0) {
+            this.grid = data.grid.join("\n");
+          } else {
+            this.errorMessage = "No solution found. Please try again (maybe) with a different dictionary size.";
+          }
           this.loading = false;
         })
         .catch((error) => {
-          console.error("Error solving:", error);
+          this.errorMessage = "Error solving. Please try again (maybe) with a different dictionary size.";
           this.loading = false;
         });
     },

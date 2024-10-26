@@ -12,9 +12,16 @@ main {
   gap: 10px;
 }
 
-button {
+.solve-button {
   padding: 10px;
   border-radius: 25px;
   cursor: pointer;
+}
+
+.error-message {
+  max-width: 40ch;
+  font-size: small;
+  justify-self: center;
+  color: #883333;
 }
 
