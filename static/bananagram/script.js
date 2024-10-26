@@ -2,10 +2,19 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("data", () => ({
     letters: "",
     errorMessage: "",
+    infoShown: false,
     grid: "",
     dictionary: "Tiny",
     sizes: ["Tiny", "Small", "Medium", "Large", "Huge", "Full"],
     loading: false,
+
+    showInfo() {
+      this.infoShown = true;
+    },
+
+    hideInfo() {
+      this.infoShown = false;
+    },
 
     solve() {
       if (this.loading) return;

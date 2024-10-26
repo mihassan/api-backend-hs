@@ -34,4 +34,19 @@
   </main>
 </body>
 
+<dialog x-bind:open="infoShown">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" @click="hideInfo"></button>
+      <h2>How to use the solver</h2>
+    </header>
+    <p>
+    <ol>
+      <li>Select the dictionary size from the dropdown list.</li>
+      <li>Enter the bananagram letters in the first text box.</li>
+      <li>Click the "Solve" button or just press enter in the text box.</li>
+    </ol>
+  </article>
+</dialog>
+
 </html>
