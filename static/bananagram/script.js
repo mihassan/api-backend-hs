@@ -1,5 +1,5 @@
 document.addEventListener("alpine:init", () => {
-  Alpine.data("scrabbleData", () => ({
+  Alpine.data("data", () => ({
     letters: "",
     grid: "",
     dictionary: "Tiny",
@@ -9,7 +9,7 @@ document.addEventListener("alpine:init", () => {
     solve() {
       if (this.loading) return;
       this.loading = true;
-      fetch("../api/scrabble", {
+      fetch("../api/bananagram", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

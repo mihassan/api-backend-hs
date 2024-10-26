@@ -7,11 +7,12 @@ The purpose of this project is to host some Haskell code on Google cloud run and
 
 1. `POST /api/hello` - Say hello
 1. `POST /api/wordle` - Wordle game solver
-1. `POST /api/scrabble` - Scrabble solver
+1. `POST /api/bananagram` - Bananagram solver
 
 # Frontend
 
 1. /wordle/index.html - Wordle game solver frontend
+1. /bananagram/index.html - Bananagram solver frontend
 
 # Tech stack
 

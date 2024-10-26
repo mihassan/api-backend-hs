@@ -1,4 +1,4 @@
-module Scrabble.Grid (Cell, Grid, RenderedGrid, render, chainToGrid) where
+module Bananagram.Grid (Cell, Grid, RenderedGrid, render, chainToGrid) where
 
 import Data.Map (Map)
 import Data.Map qualified as M

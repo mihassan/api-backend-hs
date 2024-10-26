@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
-module Scrabble.Dictionary
+module Bananagram.Dictionary
   ( Dictionary,
     Size (..),
     load,
@@ -15,8 +15,8 @@ import Data.FileEmbed
 import Data.List.Extra
 import Data.Maybe
 import GHC.Generics
-import Scrabble.Point
-import Scrabble.Util
+import Bananagram.Point
+import Bananagram.Util
 
 dictionaryFiles :: [(FilePath, C.ByteString)]
 dictionaryFiles = $(embedDir "data/dictionary")

@@ -1,4 +1,4 @@
-module Scrabble.Util (histogram, isSubMapOf, startsWith) where
+module Bananagram.Util (histogram, isSubMapOf, startsWith) where
 
 import Data.Map (Map)
 import Data.Map qualified as M

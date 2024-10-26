@@ -63,12 +63,12 @@ library
     -- Modules exported by the library.
     exposed-modules:
         Hello.Api,
-        Scrabble.Api,
-        Scrabble.Dictionary,
-        Scrabble.Grid,
-        Scrabble.Point,
-        Scrabble.Solver,
-        Scrabble.Util,
+        Bananagram.Api,
+        Bananagram.Dictionary,
+        Bananagram.Grid,
+        Bananagram.Point,
+        Bananagram.Solver,
+        Bananagram.Util,
         Wordle.Analyzer,
         Wordle.Api,
         Wordle.Matcher,

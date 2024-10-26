@@ -1,4 +1,4 @@
-module Scrabble.Point (Point, letterPoint, wordPoint) where
+module Bananagram.Point (Point, letterPoint, wordPoint) where
 
 import Data.Char
 

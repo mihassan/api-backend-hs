@@ -1,11 +1,11 @@
-module Scrabble.Solver (solve) where
+module Bananagram.Solver (solve) where
 
 import Data.List
 import Data.List.Extra
-import Scrabble.Dictionary
-import Scrabble.Util
+import Bananagram.Dictionary
+import Bananagram.Util
 
--- Available letters to construct scrabble words
+-- Available letters to construct bananagram words
 type Letters = String
 
 -- A chain of words that can be constructed from the available letters
