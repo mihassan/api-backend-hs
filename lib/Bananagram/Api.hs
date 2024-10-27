@@ -2,13 +2,13 @@
 
 module Bananagram.Api (BananagramRequest, BananagramResponse, bananagramHandler) where
 
+import Bananagram.ChainSolver
+import Bananagram.Dictionary
+import Bananagram.Grid
 import Control.Monad.IO.Class
 import Data.Aeson
 import Data.Char
 import GHC.Generics
-import Bananagram.Dictionary
-import Bananagram.Grid
-import Bananagram.Solver
 import Servant
 
 data BananagramRequest = BananagramRequest

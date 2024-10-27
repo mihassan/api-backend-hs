@@ -1,9 +1,9 @@
-module Bananagram.Solver (solve) where
+module Bananagram.ChainSolver (solve) where
 
-import Data.List
-import Data.List.Extra
 import Bananagram.Dictionary
 import Bananagram.Util
+import Data.List
+import Data.List.Extra
 
 -- Available letters to construct bananagram words
 type Letters = String

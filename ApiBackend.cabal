@@ -67,7 +67,7 @@ library
         Bananagram.Dictionary,
         Bananagram.Grid,
         Bananagram.Point,
-        Bananagram.Solver,
+        Bananagram.ChainSolver,
         Bananagram.Util,
         Wordle.Analyzer,
         Wordle.Api,
