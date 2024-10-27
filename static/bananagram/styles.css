@@ -1,6 +1,5 @@
 body {
   display: grid;
-  justify-content: center;
 }
 
 h1 {
@@ -9,19 +8,17 @@ h1 {
 
 main {
   display: grid;
-  gap: 10px;
-}
-
-.solve-button {
-  padding: 10px;
-  border-radius: 25px;
-  cursor: pointer;
+  justify-content: center;
+  justify-items: start;
 }
 
 .error-message {
-  max-width: 40ch;
-  font-size: small;
   justify-self: center;
-  color: #883333;
+  color: #c04060;
+}
+
+.error-message::before {
+  content: "\26A0 ";
+  white-space: pre;
 }
 

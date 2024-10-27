@@ -14,10 +14,7 @@
 
 <body x-data="data()">
   <header>
-    <h1>
-      Bananagram Solver
-      <i class="fa-solid fa-circle-info info-icon" @click="showInfo"></i>
-    </h1>
+    <h1>Bananagram Solver <i class="fa-solid fa-circle-info info-icon" @click="showInfo"></i></h1>
   </header>
 
   <main>
@@ -30,8 +27,11 @@
     </select>
     <button x-bind:aria-busy="loading" class="solve-button" @click="solve">Solve</button>
     <pre><code x-text="grid" x-show="grid"></code></pre>
-    <div x-show="errorMessage" x-text="errorMessage" class="error-message"></div>
   </main>
+
+  <footer>
+    <div x-show="errorMessage" x-text="errorMessage" class="error-message"></div>
+  </footer>
 </body>
 
 <dialog x-bind:open="infoShown">
