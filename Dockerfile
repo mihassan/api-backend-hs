@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Using docker multistage build.
-FROM haskell:9.8.2-slim-buster AS build
+FROM haskell:9.10.1-slim-bullseye AS build
 
 # Copy local code to the container image.
 WORKDIR /app

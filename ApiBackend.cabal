@@ -79,7 +79,7 @@ library
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.19.1.0,
+        base ^>=4.20.0.0,
         aeson,
         bytestring,
         containers,
@@ -100,7 +100,7 @@ executable ApiBackend
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.19.1.0,
+        base ^>=4.20.0.0,
         servant-server,
         warp,
         ApiBackend
@@ -117,7 +117,7 @@ executable WordleAnalyzer
 
     -- Other library packages from which modules are imported.
     build-depends:
-        base ^>=4.19.1.0,
+        base ^>=4.20.0.0,
         timeit,
         ApiBackend
 
